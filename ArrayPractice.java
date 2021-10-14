@@ -10,5 +10,16 @@ public class ArrayPractice {
             for (int i = names.length; i > 0;i--){
             System.out.println((names[i-1]) + " is a member of Super Wonderful Team of Radicals");
         }
+
+        String[] reversedArray = reverseArray(names);
+        System.out.println(reversedArray[2]);
     }
+    // Doing this Kevin's preferred way
+    public static String[] reverseArray(String[] stringArray){
+        String[] rArray = new String[stringArray.length];
+        // logic to reverse the array
+        for (int i = names.length; i > 0; i--){
+
+        return rArray;
+    
 }

@@ -1,3 +1,4 @@
+import java.util.Random;
 public class Calculator {
     public static void main(String args[]) {
 
@@ -16,16 +17,38 @@ public class Calculator {
         System.out.println("5 divided by 12 is equal to " + outputdiv);
         /*
          * method declaration: [access modifier] [non-access modifier] [return type]
-         * [name os method] ([param 1], [param 2])
+         * [name of method] ([param 1], [param 2])
          */
 
     }
     //Days of Week Switch Statement
-    public static void main(String[] args)
-    String[] days = {"Default", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"};
-    Random r=new Random();
-    int randomNumber=r.nextInt(days.length)
-    System.out.println(days[randomNumber]);
+    public String daysOfTheWeek (String daysArg) {
+        String dayOfWeek;
+        switch (daysArg) {
+            case "Monday":
+            dayOfWeek = "Monday, Garfields most dreaded day of the week.";
+            break;
+            case "Tuesday":
+            dayOfWeek = "Tuesday, Slightly better than yesterday..";
+            break;
+            case "Wednesday":
+            dayOfWeek = "Wednesday, As a once famous camel has once said, 'HUMP DAY!'";
+            break;
+            case "Thursday":
+            dayOfWeek = "A fantastic day for tacos.";
+            break;
+            case "Friday":
+            dayOfWeek = "One last push and work is done for the weekend!";
+            break;
+            case "Saturday":
+            dayOfWeek = "Sorry, the office is closed.";
+            break;
+            case "Sunday":
+            dayOfWeek = 
+            
+        }
+    }
+    
 
     // Declaring methods used in a calculator
     public static int addition(int a, int b) {
