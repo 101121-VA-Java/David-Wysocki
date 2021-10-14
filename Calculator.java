@@ -9,18 +9,23 @@ public class Calculator {
         int outputadd = addition(a, b);
         int outputsub = subtraction(a, b);
         double outputmulti = multiplication(a1, b1);
-        int outputdiv = division(a, b);
-        System.out.println(outputadd);
-        System.out.println(outputsub);
-        System.out.println(outputmulti);
-        System.out.println(outputdiv);
-
+        double outputdiv = division(a, b);
+        System.out.println("5 + 12 is equal to " + outputadd);
+        System.out.println("5 - 12 is equal to " + outputsub);
+        System.out.println("12 times 5 is equal to " + outputmulti);
+        System.out.println("5 divided by 12 is equal to " + outputdiv);
         /*
          * method declaration: [access modifier] [non-access modifier] [return type]
          * [name os method] ([param 1], [param 2])
          */
 
     }
+    //Days of Week Switch Statement
+    public static void main(String[] args)
+    String[] days = {"Default", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"};
+    Random r=new Random();
+    int randomNumber=r.nextInt(days.length)
+    System.out.println(days[randomNumber]);
 
     // Declaring methods used in a calculator
     public static int addition(int a, int b) {
@@ -35,8 +40,8 @@ public class Calculator {
         return (a1 * b1);
     }
 
-    public static int division(int a, int b) {
-        return (a % b);
+    public static double division(double a1, double b1) {
+        return (a1 / b1);
     }
 
 }
