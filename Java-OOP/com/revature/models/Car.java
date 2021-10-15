@@ -6,7 +6,8 @@ public class Car{
     public int carYear;
     public String carBrand;
     public String carType;
-
+    
+    //Overloaded Constructor
     public Car(String carColor, int carYear, String carBrand, String carType){
     this.carColor = carColor;
     this.carYear = carYear;

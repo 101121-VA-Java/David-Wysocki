@@ -44,9 +44,10 @@ public class Calculator {
             dayOfWeek = "Sorry, the office is closed.";
             break;
             case "Sunday":
-            dayOfWeek = 
-            
+            dayOfWeek = "Sorry bud, office is still closed. Try again tomorrow."
+            default: dayOfWeek = "Excuse me, that day doesn't exist. Try again."
         }
+        System.out.println(dayOfWeek);
     }
     
 
