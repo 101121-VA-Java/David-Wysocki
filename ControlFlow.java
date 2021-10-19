@@ -111,7 +111,15 @@ public class ControlFlow{
 // We need to multiply an input array by 2, only if they are a multiple of 3 using a remainder operator. 
         //int[] numbers
         // logic
-
+        int arrayLength = intArr.length;
+        int[] testArray = new int[arrayLength]
+        for (int i = 0; i < intArr.length; i++){
+            testArray = intArr[i];
+            if (intArr[i] % 3 == 0){
+                testArray[i] = intArr[i] *2;
+                
+            }
+        }
         return new int[5];
     }
 

@@ -1,0 +1,7 @@
+INDEX VERSION 1.131+C:\Users\wysoc\Documents\Gitbash\Repositories\David-Wysocki\.metadata\.plugins\org.eclipse.jdt.core
+416096680.index
+511358024.index
+946915397.index
+996700402.index
+894417549.index
+2750577833.index
