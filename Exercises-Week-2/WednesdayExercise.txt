@@ -1,0 +1,15 @@
+Go line by line, and explain what's happening in each line.
+
+int score = 80; // A variable of type int and of name score is declared and is assigned a value of 80;
+
+String result; // We are declaring a string called "result" which will later be used to store the 'result' of our logic statement.
+
+if (score == 80) { //We are using an if statement to test the score integer. We set the first conditional as being equals to 80, the next line will run if the score is equal to 80
+	result = "You passed!"; // With our score being 80, we are storing the string "You passed!" into the earlier created String result. If we call result now, it will have a value of "You passed!"
+} else if (score > 80) { // In this part of the if statement, we are telling the computer what would happen if the score is more than 80.
+	result = "You did great!"; //If the score is higher than 80, we are telling the computer to store "You did great!" in the result String.
+} else { //We are finishing our if statement by closing up the gap that we made. Earlier, we only told the computer what to do if the integer score is equal to 80, and what to do if the score is higher than 80. Now we are telling the computer what to do if the score is less than 80.
+	result = "You did not pass. Try again!"; //If the score ies less than 80, we are assigning result as "You did not pass. Try again!"
+} //Closing bracket to make sure we close out the else statement.
+
+System.out.println(result); //From here, we can see the 'result' of our hard work. We are telling the computer to display on the terminal what value was assigned to 'Result.' In this case, what we would see if "You passed!" because integer score was equals to 80. 
