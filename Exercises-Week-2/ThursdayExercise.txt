@@ -1,0 +1,52 @@
+public static void main(String[] args) { //We are declaring the main method in this line to start our code. The main method has a public access modifier, it is static meaning it can be accessed without first creating a class instance, void means it has no return type, and main is the name of the method, which is the beginning of a java program. String[] args is used to bring in command-line arguments as an array of string objects. 
+	String[] foodTypes = getFoodTypes(); // We are declaring and assigning the String array named foodTypes. It will contain what the getFoodTypes() method provides for assignment. 
+	String myType = foodTypes[2]; //We are declaring a new String called myType, and assigned it to a 3 element array called foodTypes[2], anytime myType is invoked, it acts as a reference to this array.
+
+	String[] foodsOfMyType = getFoodsByType(myType); //We are declaring a string array called foodsOfMyType which is assigned the value of getFoodsByType with the parameter of (myType),we are using foodsOfMyType to store results.
+	
+	for (String food : foodsOfMyType) { //This is an example of an enhanced For loop. the syntax of the for loop is for(dataType item : array). we set this up to compare what food matches with the foodsOfMyType array.
+		System.out.println(food); //We are printing out the results of food to the terminal.
+	} //Closing the for loop bracket
+} // closing main method bracket. We will need to create a new method to do further code.
+
+public static String[] getFoodTypes() { // We are creating a new method, which is public and static. It is returning a string array of the parameter "getFoodTypes()" which is another method.
+	String[] foodTypes = {"breakfast","lunch","dinner","dessert","snack"}; //We are defining the String array named foodTypes and assigning the parameters of the array.
+	return foodTypes; //We are returning the completed array to be used in another section of code.
+} //closing the method
+
+public static String[] getFoodsByType(String type) { //Creating a new method which is a String array returning getFoodsByType, and it can take an input of a string.
+	String[] foods = new String[3]; //We are creating a new string array called foods, which is assigned to a new String array of 3 elements.
+
+	switch(type) { //We are using a switch case here that will take a type String and return the foods array with what we have selected.
+	case "breakfast": //We are assigning foods that we would associate with breakfast. If the user chooses breakfast, the array will have the strings pancakes, cereal, and omelettes stored in the foods String array.
+		foods[0] = "pancakes"; //assignment for element 1.
+		foods[1] = "cereal"; //assignment for element 2.
+		foods[2] = "omelette"; // assignment for element 3.
+		break; // We use a break statement to tell the computer that this is the end of case "breakfast." On the next line we will start a new case.
+	case "lunch": // We are assigning lunch foods to the array if this is the option selected. Similar to our breakfast case.
+		foods[0] = "sandwich"; //assigning to element 1.
+		foods[1] = "salad"; //assigning to element 2.
+		foods[2] = "soup"; //assignment of element 3.
+		break; //Signifies the end of the lunch case.
+	case "dinner": //Start of a new case with new outputs if this is the chosen case.
+		foods[0] = "curry";//assignment of element 1.
+		foods[1] = "stir fry";//assignment of element 2 and now I am hungry.
+		foods[2] = "burger";//assignment of element 3.
+		break;//end of case "dinner"
+	case "dessert"://Start of a new case called dessert.
+		foods[0] = "cake";//assignment of element 1.
+		foods[1] = "ice cream";//assignment of element 2.
+		foods[2] = "candy";//assignment of element 3.
+		break;//ending the "dessert" case.
+	case "snack": //beginning of case "snack".
+		foods[0] = "chips"; //assignment of element 1.
+		foods[1] = "apple"; //assignment of element 2.
+		foods[2] = "samosa"; //assignment of element 3.
+		break; //ending of the "snack" case.
+	default: // a default case at the end of the switch statement will account for all answers not covered by the cases.
+		// add your own //we have add your own commented so unless the user is in the code itself this will not be seen.
+		break; //we are ending the default case.
+	}//closing off the switch statement
+
+	return foods; //we are returning the results of the switch statement to be used in a different section of the program. In this case, this array will be used in the main method line 7 which will compare the different foods we have selected with the array of foodsOfMyType.  
+} //closing the class bracket and we are at the end of the program.

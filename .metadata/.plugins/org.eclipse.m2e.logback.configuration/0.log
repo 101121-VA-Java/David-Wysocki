@@ -2218,3 +2218,109 @@ org.eclipse.core.runtime.CoreException: Launch configuration taskDriver referenc
 2021-10-20 12:34:55,030 [Worker-65: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
 2021-10-20 12:34:55,043 [Worker-65: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
 2021-10-20 12:34:55,044 [Worker-65: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2021-10-20 14:42:39,020 [Worker-4: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2021-10-20 14:45:27,539 [Worker-2: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2021-10-20 16:57:03,883 [Worker-21: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2021-10-20 16:57:03,888 [Worker-21: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2021-10-20 16:57:03,890 [Worker-21: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2021-10-20 16:57:03,891 [Worker-21: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2021-10-20 16:57:04,588 [Worker-20: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2021-10-20 16:57:04,589 [Worker-20: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\wysoc\Documents\Gitbash\Repositories\David-Wysocki\Exercises-Week-2\Java-OOP\com\src\main\resources
+2021-10-20 16:57:04,590 [Worker-20: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2021-10-20 16:57:04,591 [Worker-20: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\wysoc\Documents\Gitbash\Repositories\David-Wysocki\Exercises-Week-2\Java-OOP\com\src\test\resources
+2021-10-20 16:57:04,857 [Worker-20: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-10-20 16:57:04,857 [Worker-20: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\wysoc\Documents\Gitbash\Repositories\java-core-Chibby124\src\main\resources
+2021-10-20 16:57:04,858 [Worker-20: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-10-20 16:57:04,858 [Worker-20: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\wysoc\Documents\Gitbash\Repositories\java-core-Chibby124\src\test\resources
+2021-10-20 17:05:06,449 [Worker-22: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-10-20 17:05:06,449 [Worker-22: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\wysoc\Documents\Gitbash\Repositories\java-core-Chibby124\src\main\resources
+2021-10-20 17:05:06,450 [Worker-22: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-10-20 17:05:06,450 [Worker-22: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\wysoc\Documents\Gitbash\Repositories\java-core-Chibby124\src\test\resources
+2021-10-20 17:06:34,862 [Worker-26: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-10-20 17:06:34,863 [Worker-26: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\wysoc\Documents\Gitbash\Repositories\java-core-Chibby124\src\main\resources
+2021-10-20 17:06:34,864 [Worker-26: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-10-20 17:06:34,864 [Worker-26: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\wysoc\Documents\Gitbash\Repositories\java-core-Chibby124\src\test\resources
+2021-10-20 17:07:07,614 [Worker-24: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-10-20 17:07:07,614 [Worker-24: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\wysoc\Documents\Gitbash\Repositories\java-core-Chibby124\src\main\resources
+2021-10-20 17:07:07,615 [Worker-24: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-10-20 17:07:07,615 [Worker-24: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\wysoc\Documents\Gitbash\Repositories\java-core-Chibby124\src\test\resources
+2021-10-20 17:08:40,191 [Worker-24: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-10-20 17:08:40,191 [Worker-24: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\wysoc\Documents\Gitbash\Repositories\java-core-Chibby124\src\main\resources
+2021-10-20 17:08:40,192 [Worker-24: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-10-20 17:08:40,192 [Worker-24: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\wysoc\Documents\Gitbash\Repositories\java-core-Chibby124\src\test\resources
+2021-10-20 17:21:03,584 [Worker-30: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-10-20 17:21:03,585 [Worker-30: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\wysoc\Documents\Gitbash\Repositories\java-core-Chibby124\src\main\resources
+2021-10-20 17:21:03,587 [Worker-30: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-10-20 17:21:03,588 [Worker-30: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\wysoc\Documents\Gitbash\Repositories\java-core-Chibby124\src\test\resources
+2021-10-20 17:21:28,431 [Worker-31: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-10-20 17:21:28,432 [Worker-31: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\wysoc\Documents\Gitbash\Repositories\java-core-Chibby124\src\main\resources
+2021-10-20 17:21:28,433 [Worker-31: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-10-20 17:21:28,434 [Worker-31: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\wysoc\Documents\Gitbash\Repositories\java-core-Chibby124\src\test\resources
+2021-10-20 17:23:11,876 [Worker-33: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-10-20 17:23:11,876 [Worker-33: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\wysoc\Documents\Gitbash\Repositories\java-core-Chibby124\src\main\resources
+2021-10-20 17:23:11,878 [Worker-33: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-10-20 17:23:11,879 [Worker-33: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\wysoc\Documents\Gitbash\Repositories\java-core-Chibby124\src\test\resources
+2021-10-20 17:35:24,485 [Worker-31: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-10-20 17:35:24,485 [Worker-31: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\wysoc\Documents\Gitbash\Repositories\java-core-Chibby124\src\main\resources
+2021-10-20 17:35:24,488 [Worker-31: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-10-20 17:35:24,488 [Worker-31: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\wysoc\Documents\Gitbash\Repositories\java-core-Chibby124\src\test\resources
+2021-10-20 17:42:58,603 [Worker-36: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-10-20 17:42:58,603 [Worker-36: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\wysoc\Documents\Gitbash\Repositories\java-core-Chibby124\src\main\resources
+2021-10-20 17:42:58,604 [Worker-36: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-10-20 17:42:58,604 [Worker-36: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\wysoc\Documents\Gitbash\Repositories\java-core-Chibby124\src\test\resources
+2021-10-20 17:50:05,715 [Worker-45: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-10-20 17:50:05,715 [Worker-45: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\wysoc\Documents\Gitbash\Repositories\java-core-Chibby124\src\main\resources
+2021-10-20 17:50:05,716 [Worker-45: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-10-20 17:50:05,717 [Worker-45: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\wysoc\Documents\Gitbash\Repositories\java-core-Chibby124\src\test\resources
+2021-10-20 17:57:42,338 [Worker-47: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-10-20 17:57:42,338 [Worker-47: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\wysoc\Documents\Gitbash\Repositories\java-core-Chibby124\src\main\resources
+2021-10-20 17:57:42,339 [Worker-47: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-10-20 17:57:42,339 [Worker-47: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\wysoc\Documents\Gitbash\Repositories\java-core-Chibby124\src\test\resources
+2021-10-20 18:03:34,725 [Worker-49: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-10-20 18:03:34,726 [Worker-49: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\wysoc\Documents\Gitbash\Repositories\java-core-Chibby124\src\main\resources
+2021-10-20 18:03:34,726 [Worker-49: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-10-20 18:03:34,727 [Worker-49: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\wysoc\Documents\Gitbash\Repositories\java-core-Chibby124\src\test\resources
+2021-10-20 18:04:33,685 [Worker-52: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-10-20 18:04:33,685 [Worker-52: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\wysoc\Documents\Gitbash\Repositories\java-core-Chibby124\src\main\resources
+2021-10-20 18:04:33,688 [Worker-52: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-10-20 18:04:33,688 [Worker-52: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\wysoc\Documents\Gitbash\Repositories\java-core-Chibby124\src\test\resources
+2021-10-20 18:06:22,324 [Worker-54: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-10-20 18:06:22,325 [Worker-54: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\wysoc\Documents\Gitbash\Repositories\java-core-Chibby124\src\main\resources
+2021-10-20 18:06:22,326 [Worker-54: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-10-20 18:06:22,326 [Worker-54: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\wysoc\Documents\Gitbash\Repositories\java-core-Chibby124\src\test\resources
+2021-10-20 18:09:41,303 [Worker-55: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-10-20 18:09:41,303 [Worker-55: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\wysoc\Documents\Gitbash\Repositories\java-core-Chibby124\src\main\resources
+2021-10-20 18:09:41,304 [Worker-55: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-10-20 18:09:41,305 [Worker-55: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\wysoc\Documents\Gitbash\Repositories\java-core-Chibby124\src\test\resources
+2021-10-20 18:11:47,802 [Worker-55: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-10-20 18:11:47,803 [Worker-55: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\wysoc\Documents\Gitbash\Repositories\java-core-Chibby124\src\main\resources
+2021-10-20 18:11:47,803 [Worker-55: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-10-20 18:11:47,804 [Worker-55: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\wysoc\Documents\Gitbash\Repositories\java-core-Chibby124\src\test\resources
+2021-10-20 18:14:49,811 [Worker-55: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-10-20 18:14:49,812 [Worker-55: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\wysoc\Documents\Gitbash\Repositories\java-core-Chibby124\src\main\resources
+2021-10-20 18:14:49,813 [Worker-55: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-10-20 18:14:49,813 [Worker-55: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\wysoc\Documents\Gitbash\Repositories\java-core-Chibby124\src\test\resources
+2021-10-20 18:15:23,254 [Worker-55: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-10-20 18:15:23,254 [Worker-55: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\wysoc\Documents\Gitbash\Repositories\java-core-Chibby124\src\main\resources
+2021-10-20 18:15:23,255 [Worker-55: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-10-20 18:15:23,255 [Worker-55: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\wysoc\Documents\Gitbash\Repositories\java-core-Chibby124\src\test\resources
+2021-10-20 18:16:40,678 [Worker-58: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-10-20 18:16:40,678 [Worker-58: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\wysoc\Documents\Gitbash\Repositories\java-core-Chibby124\src\main\resources
+2021-10-20 18:16:40,679 [Worker-58: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-10-20 18:16:40,680 [Worker-58: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\wysoc\Documents\Gitbash\Repositories\java-core-Chibby124\src\test\resources
+2021-10-20 18:20:00,175 [Worker-55: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-10-20 18:20:00,175 [Worker-55: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\wysoc\Documents\Gitbash\Repositories\java-core-Chibby124\src\main\resources
+2021-10-20 18:20:00,176 [Worker-55: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-10-20 18:20:00,176 [Worker-55: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\wysoc\Documents\Gitbash\Repositories\java-core-Chibby124\src\test\resources
+2021-10-20 18:21:09,648 [Worker-56: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-10-20 18:21:09,648 [Worker-56: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\wysoc\Documents\Gitbash\Repositories\java-core-Chibby124\src\main\resources
+2021-10-20 18:21:09,649 [Worker-56: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-10-20 18:21:09,649 [Worker-56: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\wysoc\Documents\Gitbash\Repositories\java-core-Chibby124\src\test\resources
+2021-10-20 18:22:43,087 [Worker-60: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-10-20 18:22:43,087 [Worker-60: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\wysoc\Documents\Gitbash\Repositories\java-core-Chibby124\src\main\resources
+2021-10-20 18:22:43,088 [Worker-60: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-10-20 18:22:43,089 [Worker-60: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\wysoc\Documents\Gitbash\Repositories\java-core-Chibby124\src\test\resources
+2021-10-21 09:45:51,014 [Worker-124: Launching EvaluationServiceTest] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-10-21 09:45:51,016 [Worker-124: Launching EvaluationServiceTest] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\wysoc\Documents\Gitbash\Repositories\java-core-Chibby124\src\main\resources
+2021-10-21 09:45:51,018 [Worker-124: Launching EvaluationServiceTest] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-10-21 09:45:51,018 [Worker-124: Launching EvaluationServiceTest] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\wysoc\Documents\Gitbash\Repositories\java-core-Chibby124\src\test\resources
