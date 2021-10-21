@@ -5,7 +5,7 @@ public static void main(String[] args) { //We are declaring the main method in t
 	String[] foodsOfMyType = getFoodsByType(myType); //We are declaring a string array called foodsOfMyType which is assigned the value of getFoodsByType with the parameter of (myType),we are using foodsOfMyType to store results.
 	
 	for (String food : foodsOfMyType) { //This is an example of an enhanced For loop. the syntax of the for loop is for(dataType item : array). we set this up to compare what food matches with the foodsOfMyType array.
-		System.out.println(food); //We are printing out the results of food to the terminal.
+		System.out.println(food); //We are printing out the results of food to the terminal. After reviewing the code, it will return the foods listed in Dinner case, Curry, stirfry, and burger. 
 	} //Closing the for loop bracket
 } // closing main method bracket. We will need to create a new method to do further code.
 
