@@ -1,0 +1,24 @@
+public class Food { //We are declaring a public class named Food. This class is non-static.
+	public String name; //We are declaring a String called name. We have yet to assign a variable to it.
+	public String type; //We are declaring a 2nd empty string called type.
+
+	public Food(String name, String type) { //We are declaring a public non-static constructor called food which will take in the String name and String type.
+		this.name = name; //We are using this.name to eliminate confusion between a class variable and an instance variable. We are assigning the parameter name we are passing into this constructor to be used in a different section of the code.
+		this.type = type; //Similar as previous line, we are assigning the String type as an instance variable to be used in a different section of the code.
+	} //Closing bracket for constructor
+
+	public void cook() { //We are declaring a public method called cook with no return type. 
+		if (!name.contains("cooked")) { //We are using an if statement to see if the String name that gets passed in contains the word cooked. If it does not, it will execute the next line.
+			name = "cooked " + name; //This is the return portion of the if statement. If the name we pass in does not contain "cooked", it is going to add "cooked" to the beginning of the String name. Ex: If we pass in "Ham" this will return with "Cooked Ham".
+		} //Closing bracket for if statement
+	} // Closing bracket for method cook.
+} Closing bracket for class Food.
+
+public class Main { //We are declaring the Main class. It is a public, non-static class.
+	public static void main(String[] args) { //We are using a public, static, no return type main constructor that can take a String Array of arguments.
+		Food myFood = new Food("potato", "vegetable"); //We are invoking on the constructor we established starting on line 5 to create a new instance of Food called myFood. It will pass in a String name of Potato and a String type of vegetable.
+		myFood.cook(); //We are passing in the output of the Food constructor into the cook method established starting on line 10. It can only take the String name which we assigned as Potato.
+
+		System.out.println(myFood.name); //We are outputting the results of the program to the terminal. It will display on the console "cooked potato".
+	} //Closing bracket for main method.
+} //Closing bracket for Main class and end of the program. 
