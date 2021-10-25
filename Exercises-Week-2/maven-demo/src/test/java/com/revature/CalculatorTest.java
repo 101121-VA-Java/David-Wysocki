@@ -17,7 +17,7 @@ import com.revature.exceptions.CalculatorException;
 @TestMethodOrder(OrderAnnotation.class)
 public class CalculatorTest {
 
-	private static Calculator cal;
+	private static CalculatorRedux cal;
 
 	/*
 	 * JUnit Annotations: - @BeforeEach - - @AfterEach - @BeforeAll - @AfterAll
@@ -36,7 +36,7 @@ public class CalculatorTest {
 
 	@BeforeAll
 	public static void setup() {
-		cal = new Calculator();
+		cal = new CalculatorRedux();
 	}
 
 	@AfterAll
@@ -44,26 +44,26 @@ public class CalculatorTest {
 		System.out.println("AfterAll");
 	}
 
-	@Order(1)
+	@Order(2)
 	@Test
 	public void addOneAndOne() {
 		double expected = 2;
-		double actual = cal.add(1, 1);
-		assertEquals(expected, actual);
-	}
-
-	@Order(2)
-	@Test
-	public void addMinusTwoAndOne() {
-		double expected = 1;
-		double actual = cal.add(-2, 1);
+		double actual = add.addThem(1, 1);
 		assertEquals(expected, actual);
 	}
 
 	@Order(3)
 	@Test
+	public void addMinusTwoAndOne() {
+		double expected = -1;
+		double actual = add.addThem(-2, 1);
+		assertEquals(expected, actual);
+	}
+
+	@Order(1)
+	@Test
 	public void divideBy0() {
-		assertThrows(CalculatorException.class, () -> cal.divide(1, 0));
+		assertThrows(CalculatorException.class, () -> divide.divideThem(1, 0));
 	}
 
 }
