@@ -4,11 +4,11 @@ import java.util.Scanner;
 
 public class menu1 {
 	static Scanner sc = new Scanner(System.in);
+
 	public static void main(String[] args) {
 	}
-	
 
-	public static  void menuFirst() {
+	public static void menuFirst() {
 		System.out.println("Welcome to the Amazing Calculator! To whom do I have the pleasure of working with today?");
 		String yourName = sc.nextLine();
 		System.out.println("Nice to meet you " + yourName + ", let's get started!");
@@ -54,14 +54,14 @@ public class menu1 {
 			Double y3 = sc.nextDouble();
 			divide.divideThem(x3, y3);
 			break;
-		case 5: 
+		case 5:
 			System.out.println("What number would you like to see is prime?");
 			int a = sc.nextInt();
 			prime.isPrime(a);
 			menu2();
 		case 6:
 			System.out.println("Understandable, have a nice day!");
-			
+
 			break;
 
 		default:
@@ -71,5 +71,5 @@ public class menu1 {
 		}
 		sc.close();
 	}
-	
+
 }
