@@ -1,9 +1,16 @@
 package com.revature.models;
 
-public class MinuteTask {
+import java.time.LocalDate;
+
+public class MinuteTask extends Task {
 
 	public MinuteTask() {
-		// TODO Auto-generated constructor stub
+
+	}
+
+	public MinuteTask(String name, LocalDate dueDate) {
+		super(name, dueDate);
+
 	}
 
 }
