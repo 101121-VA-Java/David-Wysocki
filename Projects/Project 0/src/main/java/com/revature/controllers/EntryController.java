@@ -2,8 +2,6 @@ package com.revature.controllers;
 
 import java.util.Scanner;
 
-import com.revature.controllers.*;
-
 public class EntryController {
 	static Scanner se = new Scanner(System.in);
 
@@ -20,10 +18,10 @@ public class EntryController {
 		int seInput = se.nextInt();
 		switch (seInput) {
 		case 1:
-			//menuEmployeeService();
+			EmployeeMenu.menuEmployeeLanding();
 			break;
 		case 2:
-			//menuCustomerService();
+			CustomerLanding.menuCustomerLanding();
 			break;
 		case 3:
 			System.out.println("Thank you for coming to the Some Kind of Bird Shop! Have a nice day.");

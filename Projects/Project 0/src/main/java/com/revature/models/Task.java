@@ -69,15 +69,4 @@ public class Task {
 		return "Task [name=" + name + ", dueDate=" + dueDate + "]";
 	}
 	
-	// because abstract, can no longer create instance of Task
-//	public Task getATask() {
-//		return new Task();
-//	}
-	/*
-	 * public class Object{
-	 * 	public String toString(){
-	 * 		return //memory address; 
-	 * }
-	 */
-	
 }

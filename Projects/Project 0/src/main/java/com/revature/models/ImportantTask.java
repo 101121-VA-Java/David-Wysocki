@@ -9,7 +9,7 @@ public class ImportantTask extends Task {
 
 	public ImportantTask(String name, LocalDate dueDate) {
 		super(name, dueDate);
-		// TODO Auto-generated constructor stub
+
 	}
 
 }
