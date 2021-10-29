@@ -13,9 +13,9 @@ public class EmployeeService {
 
 	private static EmployeeDao ed = new EmployeeList();
 	
-	public Employee addEmployee(Employee e) throws UsernameAlreadyExistsException {
+	public static Employee addEmployee(Employee e) throws UsernameAlreadyExistsException {
 
-		Employee newEmp = this.getEmployeeByUsername(e.getUsername());
+		Employee newEmp = getEmployeeByUsername(e.getUsername());
 		if(newEmp != null) {
 			throw new UsernameAlreadyExistsException();
 		}
@@ -25,7 +25,7 @@ public class EmployeeService {
 		return ed.add(e);
 	}
 	
-	public Employee getEmployeeByUsername(String username){
+	public static Employee getEmployeeByUsername(String username){
 		List<Employee> employees = ed.getAll();
 		for(Employee e : employees) {
 			if (e.getUsername().equals(username)) {
@@ -36,10 +36,10 @@ public class EmployeeService {
 	}
 	
 	public Employee login(String username, String password) throws LoginException {
-		Employee emp = this.getEmployeeByUsername(username);
+		Employee emp = EmployeeService.getEmployeeByUsername(username);
 		if(emp == null || !emp.getPassword().equals(password)) {
 			throw new LoginException();
-		}
+		}// LoginController.employeeMenu(); Add role check and menu path diversion here.
 		return emp;
 	}
 }

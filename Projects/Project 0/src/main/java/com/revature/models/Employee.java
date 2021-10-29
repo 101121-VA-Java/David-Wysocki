@@ -7,7 +7,7 @@ public class Employee {
 	private String name;
 	private String username;
 	private String password;
-	private Role role; // using an enum to store a specific value
+	private static Role role; // using an enum to store a specific value
 	private Employee manager;
 
 	public Employee() {
@@ -22,6 +22,13 @@ public class Employee {
 		this.password = password;
 		this.role = role;
 		this.manager = manager;
+	}
+
+	public Employee(String employeeName, String employeeUserName, String employeePassword) {
+		super();
+		this.name = employeeName;
+		this.username = employeeUserName;
+		this.password = employeePassword;
 	}
 
 	public int getId() {
@@ -56,7 +63,7 @@ public class Employee {
 		this.password = password;
 	}
 
-	public Role getRole() {
+	public static Role getRole() {
 		return role;
 	}
 

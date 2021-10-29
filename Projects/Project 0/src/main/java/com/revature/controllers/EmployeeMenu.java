@@ -1,7 +1,10 @@
 package com.revature.controllers;
 
 import java.util.Scanner;
-
+import com.revature.models.Employee;
+import com.revature.services.EmployeeService;
+import com.revature.exceptions.EmployeeNotFoundException;
+import com.revature.exceptions.UsernameAlreadyExistsException;
 public class EmployeeMenu {
 	static Scanner esMenu = new Scanner(System.in);
 
@@ -33,11 +36,20 @@ public class EmployeeMenu {
 				System.out.println("Oops, something has gone wrong. Let's try again.");
 				menuEmployeeLanding();
 			}
-			//Method to construct new Employee here
+			Employee newEmp = new Employee(EmployeeName, EmployeeUserName, EmployeePassword);
+			
+			try {
+				newEmp = EmployeeService.addEmployee(newEmp);
+				System.out.println("Welcome " + newEmp.getName() + "!");
+			} catch (UsernameAlreadyExistsException e) {
+				System.out.println("Username is already in use.\nPlease try again.");
+			}
 			System.out.println("Congratulations! You are registered! Returning to menu.");
 			menuEmployeeLanding();
 
-		case 2:
+		case 2: 
+			LoginController.run();
+			
 			break;
 		case 3:EntryController.menuEntry();
 		break;
