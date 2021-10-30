@@ -37,15 +37,42 @@ public class LoginController {
 	}
 	
 	
-	/*public static void EmployeeMenu() {
+	public static void EmployeeMenu() {
+		System.out.println("Employee Menu: Please select from the list of available options");
+		System.out.println("Option 1: Assigned Tasks");
+		System.out.println("Option 2: Customer Assistance");
+		System.out.println("Option 3: Log out and Exit");
 		
+		int EmployeeIn = sc.nextInt();
+		switch (EmployeeIn) {
+		case 1: 
+			System.out.println("Task Menu");
+			//Add task functionality here
+			break;
+		case 2: 
+			System.out.println("Customer Assistance");
+			//Add financing menu path and more customer assistance functionality here.
+			break;
+		case 3:
+			System.out.println("Logging out");
+			break;
+			
+			default: 
+				System.out.println("Not a valid entry, returning to menu");
+				EmployeeMenu();
+				break;
+			
+			
+		}
 	}
-	
+	/*
 	public static void ManagerMenu() {
 		
 	}
+	public static void SupervisorMenu(){
+	}
 	
-	public static void AdminMenu() {
+	public static void OwnerMenu() {
 		
 	}
 */
