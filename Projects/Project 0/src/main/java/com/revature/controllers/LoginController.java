@@ -33,6 +33,7 @@ public class LoginController {
 		}
 		System.out.println("Logged in.");
 		EntryController.menuEntry();
+		sc.close();
 		
 	}
 	
@@ -42,7 +43,7 @@ public class LoginController {
 		System.out.println("Option 1: Assigned Tasks");
 		System.out.println("Option 2: Customer Assistance");
 		System.out.println("Option 3: Log out and Exit");
-		
+		Scanner sc = new Scanner(System.in);
 		int EmployeeIn = sc.nextInt();
 		switch (EmployeeIn) {
 		case 1: 
@@ -55,6 +56,7 @@ public class LoginController {
 			break;
 		case 3:
 			System.out.println("Logging out");
+			sc.close();
 			break;
 			
 			default: 

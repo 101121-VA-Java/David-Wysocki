@@ -1,0 +1,66 @@
+Collections / Generics
+1.	What are collections in Java?
+Java collections perform operations on data such as searching, sorting, insertion, manipulation, and deletion.
+2.	What are the interfaces in the Collections API?
+Set, List, Queue, Deque
+3.	What is the difference between a Set and a List?
+Set is an unordered set of elements which does not allow us to store duplicate items, meanwhile List such as a linkedlist can store duplicate items and maintains the insertion order.
+4.	What is the difference between an Array and an ArrayList?
+An array is a fixed length data structure whereas the ArrayList is a variable length collection class. An arraylist CAN have its length changed after creation.
+5.	What is the difference between ArrayList and Vector?
+A vector is threadsafe while an arraylist is not. Only one thread can call methods on a Vector at a time.
+6.	What is the difference between TreeSet and HashSet?
+A hashset allows a null object while a tree set will throw a null pointer exception.
+7.	What is the difference between HashTable and HashMap?
+HashMap is not thread safe while Hashtable is threadsafe. Hashmap allows multiple null values while hashtable doesn't allow for null values.
+8.	Are Maps in the Collections API? What makes Map different from other interfaces?
+Maps are  in the collections API. It leverages a key value pair system and comes with its own set of methods. It does not extend iterable and cannot be iterated in a traditional way.
+9.	List several ways to iterate over a Collection. How would you iterate over a Map?
+for collection: while, for, and for-each. For Map, for-each, keyset & values, map.entry, forEach, and iterating over keys and searching for values.
+*10.	What is the purpose of the Iterable interface? What about Iterator?
+*11.	What is the difference between the Comparable and Comparator interfaces?
+*12.	What are generics? What is the diamond operator (<>)?
+Generics are a way for programmers to specify, with a single method declaration, a set of related methods, or with a single class declaration, a set of related types respectively. 
+*13.	Create and instantiate a generic class. Create and use a generic method.
+public class Demo<T> {
+private T t;
+public void add(T t) {
+this t. = t;
+}
+public T get() {
+return t;
+}
+Threads
+1.	What is multi-threading?
+applications with concurrent processes
+2.	In what ways can you create a thread?
+Extends Thread class/implements the Runnable interface, override the run() method, instantiate a thread object and invoke the start() method on that thread.
+3.	List the methods in the Thread class and Runnable interface
+run, wait, join, sleep
+4.	Explain the lifecycle of a thread
+New, thread object created but run() hasnt been called yet.
+Runnable run() has been called and is executing
+Blocked waiting for another thread to be done accessing a resource on which a lock has been placed.
+Waiting/Timed-waiting
+Terminated
+5.	What is deadlock?
+occurs when the waiting process is still holding on to another resource that the first thread needs before it can finish.
+6.	What is the synchronized keyword?
+It prevents more than one thread from accessing a resource at a time.
+7.	What is the difference between String, StringBuilder, and StringBuffer? Which of these are thread-safe?
+*
+IO / Serialization
+1.	How do you serialize / deserialize an object in Java?
+2.	What is a Marker interface? What does Serializable interface do?
+3.	What are transient variables?
+4.	Difference between FileReader and BufferedReader?
+5.	Explain the try-with-resources syntax
+6.	List some methods in the Scanner class
+
+Log4j
+1.	What are the advantages to using a logging library?
+It allows approrpiate users to view information about the state of the program and has functions to persist messages for analysis at a later time. 
+2.	What is log4j?
+It is a Java Logging framework, it is used to capture and persisting information regarding the state of an application
+3.	What are the logging levels of log4j?
+Trace, Debug, Info, Warning, Error, and Fatal
