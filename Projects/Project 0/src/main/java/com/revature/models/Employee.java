@@ -9,27 +9,40 @@ public class Employee {
 	private String password;
 	private static Role role; // using an enum to store a specific value
 	private Employee manager;
+	private int man_id = 1;
 
 	public Employee() {
 		super();
 	}
 
-	public Employee(int id, String name, String username, String password, Role role, Employee manager) {
+	public Employee(int id, String name, String username, String password, Role role, int man_id) {
 		super();
+		manager = new Employee(man_id);
 		this.id = id;
 		this.name = name;
 		this.username = username;
 		this.password = password;
 		this.role = role;
-		this.manager = manager;
+		this.man_id = man_id;
 	}
 
-	public Employee(String employeeName, String employeeUserName, String employeePassword) {
+	public Employee(String employeeName, String employeeUserName, String employeePassword, Role role, int man_id) {
 		super();
+		manager = new Employee(man_id);
 		this.name = employeeName;
 		this.username = employeeUserName;
 		this.password = employeePassword;
+		this.role = Role.BASIC_EMPLOYEE;
+		this.man_id = man_id;
 	}
+
+	public Employee(int man_id) {
+		this.setMan_id(man_id);
+	}
+
+	 
+		
+	
 
 	public int getId() {
 		return id;
@@ -63,12 +76,12 @@ public class Employee {
 		this.password = password;
 	}
 
-	public static Role getRole() {
+	public Role getRole() {
 		return role;
 	}
 
 	public void setRole(Role role) {
-		this.role = role;
+		Employee.role = role;
 	}
 
 	public Employee getManager() {
@@ -132,5 +145,13 @@ public class Employee {
 		} else if (!username.equals(other.username))
 			return false;
 		return true;
+	}
+
+	public int getMan_id() {
+		return man_id;
+	}
+
+	public void setMan_id(int man_id) {
+		this.man_id = man_id;
 	}
 }

@@ -17,7 +17,7 @@ public class EmployeePostgres implements EmployeeDao {
 
 	@Override
 	public Employee getEmployeeById(int id) {
-		String sql = "select * from revacompany.employees where e_id = ? ";
+		String sql = "select * from employees where e_id = ? ";
 		Employee emp = null;
 		
 		try (Connection con = ConnectionUtil.getConnectionFromEnv()){
@@ -52,7 +52,7 @@ public class EmployeePostgres implements EmployeeDao {
 
 	@Override
 	public List<Employee> getEmployees() {
-		String sql = "select * from revacompany.employees;";
+		String sql = "select * from employees;";
 		List<Employee> employees = new ArrayList<>();
 		
 		try (Connection con = ConnectionUtil.getConnectionFromEnv()){
@@ -80,7 +80,7 @@ public class EmployeePostgres implements EmployeeDao {
 	@Override
 	public int addEmployee(Employee employee) {
 		int genId = -1;
-		String sql = "insert into revacompany.employees (e_name, e_username, e_password, e_role, man_e_id) "
+		String sql = "insert into employees (e_name, e_username, e_password, e_role, man_e_id) "
 				+ "values (?, ?, ?, ?, ?) returning e_id;";
 		
 		try(Connection con = ConnectionUtil.getConnectionFromEnv()){
@@ -109,7 +109,7 @@ public class EmployeePostgres implements EmployeeDao {
 	@Override
 	public boolean updateEmployee(Employee employee) {
 		boolean result = false;
-		String sql = "Update revacompany.employees set e_name=? where e_id=?";
+		String sql = "Update employees set e_name=? where e_id=?";
 		try(Connection con = ConnectionUtil.getConnectionFromEnv()){
 			PreparedStatement ps = con.prepareStatement(sql);
 				ps.setString(1, "Bobby Furniture");
@@ -130,7 +130,7 @@ public class EmployeePostgres implements EmployeeDao {
 	public int deleteEmployee(int id) {
 		
 		int remId = 404;
-		String sql = "delete from revacompany.employees where e_id=?" ;
+		String sql = "delete from employees where e_id=?" ;
 		
 		try(Connection con = ConnectionUtil.getConnectionFromEnv()){
 			PreparedStatement ps = con.prepareStatement(sql);

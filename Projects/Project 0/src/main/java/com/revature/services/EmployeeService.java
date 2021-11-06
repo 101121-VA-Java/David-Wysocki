@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.revature.repositories.EmployeeDao;
 import com.revature.repositories.EmployeeList;
+import com.revature.repositories.EmployeePostgres;
 import com.revature.controllers.EntryController;
 import com.revature.controllers.LoginController;
 import com.revature.exceptions.LoginException;
@@ -13,8 +14,7 @@ import com.revature.models.Role;
 
 public class EmployeeService {
 
-	private static EmployeeDao ed = new EmployeeList();
-
+	private static EmployeeDao ed = new EmployeePostgres();
 	public static Employee addEmployee(Employee e) throws UsernameAlreadyExistsException {
 
 		Employee newEmp = getEmployeeByUsername(e.getUsername());
@@ -22,7 +22,8 @@ public class EmployeeService {
 			throw new UsernameAlreadyExistsException();
 		}
 		e.setRole(Role.BASIC_EMPLOYEE);
-		e.setManager(ed.getById(0));
+		e.setMan_id(1);
+		
 
 		return ed.add(e);
 	}
@@ -49,16 +50,16 @@ public class EmployeeService {
 			LoginController.EmployeeMenu();
 			break;
 		case CUSTOMER:
-//			customerMenu();
+			LoginController.CustomerMenu();
 			break;
 		case MANAGER:
-//			managerMenu();
+			LoginController.ManagerMenu();
 			break;
 		case OWNER:
-//			OwnerMenu();
+			LoginController.OwnerMenu();
 			break;
 		case SUPERVISOR:
-//			SupervisorMenu();
+			LoginController.SupervisorMenu();
 			break;
 		default:
 			System.out.println("Not recognized by system, returning to main menu");

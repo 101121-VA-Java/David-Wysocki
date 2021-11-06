@@ -2,6 +2,8 @@ package com.revature.controllers;
 
 import java.util.Scanner;
 
+import com.revature.models.Role;
+
 public class EntryController {
 	static Scanner se = new Scanner(System.in);
 

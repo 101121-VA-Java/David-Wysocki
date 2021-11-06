@@ -4,9 +4,15 @@ import java.time.LocalDate;
 
 public class Task {
 
-	public String name;
+	private String name;
 	private LocalDate dueDate;
-	
+	private int tId;
+	public Task(String name, int tId) {
+		super();
+		this.name = name;
+		this.tId = tId;
+	}
+
 	public Task() {
 		super();
 	}
@@ -66,7 +72,15 @@ public class Task {
 
 	@Override
 	public String toString() {
-		return "Task [name=" + name + ", dueDate=" + dueDate + "]";
+		return "Task [name=" + name + ", dueDate=" + dueDate + ", tId=" + tId + "]";
+	}
+
+	public int gettId() {
+		return tId;
+	}
+
+	public void settId(int tId) {
+		this.tId = tId;
 	}
 	
 }

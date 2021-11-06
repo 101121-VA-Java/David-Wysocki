@@ -6,8 +6,9 @@ import com.revature.models.Employee;
 
 public interface GenericDao<T> {
 T add (T t);
-T getByID(int id);
+
+T getById(int id);
 List<T> getAll();
 boolean update(T t);
-Employee getById(int id);
+boolean deleteById(int id);
 }

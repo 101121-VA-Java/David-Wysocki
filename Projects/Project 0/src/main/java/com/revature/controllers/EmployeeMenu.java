@@ -2,6 +2,8 @@ package com.revature.controllers;
 
 import java.util.Scanner;
 import com.revature.models.Employee;
+import com.revature.models.Role;
+import com.revature.repositories.EmployeePostgres;
 import com.revature.services.EmployeeService;
 import com.revature.exceptions.EmployeeNotFoundException;
 import com.revature.exceptions.UsernameAlreadyExistsException;
@@ -31,15 +33,17 @@ public class EmployeeMenu {
 
 			System.out.println("So just to recap, your name is " + EmployeeName + ", your username is "
 					+ EmployeeUserName + ", and the password you have chosen is " + EmployeePassword
-					+ ". Is this correct? (true/false)");
+					+ ". \nIs this correct? (enter either true/false)");
 			if (esMenu.nextBoolean() == !true) {
 				System.out.println("Oops, something has gone wrong. Let's try again.");
 				menuEmployeeLanding();
 			}
-			Employee newEmp = new Employee(EmployeeName, EmployeeUserName, EmployeePassword);
+			Employee newEmp = new Employee(EmployeeName, EmployeeUserName, EmployeePassword, Role.BASIC_EMPLOYEE, 1);
 			
 			try {
 				newEmp = EmployeeService.addEmployee(newEmp);
+				
+				
 				System.out.println("Welcome " + newEmp.getName() + "!");
 			} catch (UsernameAlreadyExistsException e) {
 				System.out.println("Username is already in use.\nPlease try again.");
