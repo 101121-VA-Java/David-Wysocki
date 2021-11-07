@@ -9,12 +9,12 @@
     <fullyQualifiedTypeName name="java.util.Scanner"/>
     <fullyQualifiedTypeName name="com.revature.exceptions.EmployeeNotFoundException"/>
     <fullyQualifiedTypeName name="com.revature.exceptions.UsernameAlreadyExistsException"/>
-    <fullyQualifiedTypeName name="com.revature.models.Role"/>
-    <fullyQualifiedTypeName name="com.revature.controllers.LoginController"/>
     <fullyQualifiedTypeName name="com.revature.controllers.EntryController"/>
-    <fullyQualifiedTypeName name="com.revature.repositories.EmployeeList"/>
     <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="java.time.LocalDate"/>
+    <fullyQualifiedTypeName name="com.revature.repositories.EmployeeList"/>
+    <fullyQualifiedTypeName name="com.revature.models.Role"/>
+    <fullyQualifiedTypeName name="com.revature.controllers.LoginController"/>
     <fullyQualifiedTypeName name="com.revature.repositories.EmployeePostgres"/>
 </qualifiedTypeNameHistroy>

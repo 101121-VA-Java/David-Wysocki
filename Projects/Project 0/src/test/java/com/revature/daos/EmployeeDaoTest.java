@@ -22,7 +22,7 @@ public class EmployeeDaoTest {
 	
 	@BeforeEach
 	public void setUp() {
-		ed = new EmployeeList();
+		ed = new EmployeePostgres();
 	}
 
 	

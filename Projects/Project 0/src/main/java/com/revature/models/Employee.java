@@ -7,42 +7,36 @@ public class Employee {
 	private String name;
 	private String username;
 	private String password;
-	private static Role role; // using an enum to store a specific value
+	private Role role; // using an enum to store a specific value
 	private Employee manager;
-	private int man_id = 1;
 
 	public Employee() {
 		super();
+		// TODO Auto-generated constructor stub
 	}
 
-	public Employee(int id, String name, String username, String password, Role role, int man_id) {
+	public Employee(int id) {
 		super();
-		manager = new Employee(man_id);
+		this.id = id;
+	}
+
+	public Employee(int id, String name, String username, String password, Role role, Employee manager) {
+		super();
 		this.id = id;
 		this.name = name;
 		this.username = username;
 		this.password = password;
 		this.role = role;
-		this.man_id = man_id;
+		this.manager = manager;
 	}
 
-	public Employee(String employeeName, String employeeUserName, String employeePassword, Role role, int man_id) {
+	public Employee(String name, String username, String password, Role role) {
 		super();
-		manager = new Employee(man_id);
-		this.name = employeeName;
-		this.username = employeeUserName;
-		this.password = employeePassword;
-		this.role = Role.BASIC_EMPLOYEE;
-		this.man_id = man_id;
+		this.name = name;
+		this.username = username;
+		this.password = password;
+		this.role = role;
 	}
-
-	public Employee(int man_id) {
-		this.setMan_id(man_id);
-	}
-
-	 
-		
-	
 
 	public int getId() {
 		return id;
@@ -81,7 +75,7 @@ public class Employee {
 	}
 
 	public void setRole(Role role) {
-		Employee.role = role;
+		this.role = role;
 	}
 
 	public Employee getManager() {
@@ -90,12 +84,6 @@ public class Employee {
 
 	public void setManager(Employee manager) {
 		this.manager = manager;
-	}
-
-	@Override
-	public String toString() {
-		return "Employee [id=" + id + ", name=" + name + ", username=" + username + ", password=" + password + ", role="
-				+ role + ", manager=" + manager + "]";
 	}
 
 	@Override
@@ -147,11 +135,10 @@ public class Employee {
 		return true;
 	}
 
-	public int getMan_id() {
-		return man_id;
+	@Override
+	public String toString() {
+		return "Employee [id=" + id + ", name=" + name + ", username=" + username + ", password=" + password + ", role="
+				+ role + ", manager=" + manager + "]";
 	}
-
-	public void setMan_id(int man_id) {
-		this.man_id = man_id;
-	}
+	
 }

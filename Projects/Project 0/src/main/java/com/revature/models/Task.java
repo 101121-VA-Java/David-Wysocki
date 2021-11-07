@@ -1,34 +1,43 @@
 package com.revature.models;
 
-import java.time.LocalDate;
 
 public class Task {
 
 	private String name;
-	private LocalDate dueDate;
 	private int tId;
+	
+	public Task() {
+		super();
+	}
+
 	public Task(String name, int tId) {
 		super();
 		this.name = name;
 		this.tId = tId;
 	}
 
-	public Task() {
-		super();
+	public String getName() {
+		return name;
 	}
 
-	public Task(String name, LocalDate dueDate) {
-		super();
+	public void setName(String name) {
 		this.name = name;
-		this.dueDate = dueDate;
+	}
+
+	public int gettId() {
+		return tId;
+	}
+
+	public void settId(int tId) {
+		this.tId = tId;
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((dueDate == null) ? 0 : dueDate.hashCode());
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		result = prime * result + tId;
 		return result;
 	}
 
@@ -41,46 +50,20 @@ public class Task {
 		if (getClass() != obj.getClass())
 			return false;
 		Task other = (Task) obj;
-		if (dueDate == null) {
-			if (other.dueDate != null)
-				return false;
-		} else if (!dueDate.equals(other.dueDate))
-			return false;
 		if (name == null) {
 			if (other.name != null)
 				return false;
 		} else if (!name.equals(other.name))
 			return false;
+		if (tId != other.tId)
+			return false;
 		return true;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public LocalDate getDueDate() {
-		return dueDate;
-	}
-
-	public void setDueDate(LocalDate dueDate) {
-		this.dueDate = dueDate;
 	}
 
 	@Override
 	public String toString() {
-		return "Task [name=" + name + ", dueDate=" + dueDate + ", tId=" + tId + "]";
+		return "Task [name=" + name + ", tId=" + tId + "]";
 	}
-
-	public int gettId() {
-		return tId;
-	}
-
-	public void settId(int tId) {
-		this.tId = tId;
-	}
+	
 	
 }

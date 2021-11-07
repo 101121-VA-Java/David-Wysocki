@@ -6,6 +6,7 @@ import java.util.Scanner;
 import com.revature.exceptions.LoginException;
 import com.revature.models.Employee;
 import com.revature.models.Role;
+import com.revature.repositories.EmployeePostgres;
 import com.revature.services.EmployeeService;
 
 public class LoginController {
@@ -112,7 +113,7 @@ public class LoginController {
 	 }
 	 
 	  public static void OwnerMenu() {
-		  System.out.println("Manager Menu - Please select from one of the available options");
+		  System.out.println("Owner Menu - Please select from one of the available options");
 			 System.out.println("Option 1: View Store Inventory");
 			 System.out.println("Option 2: Add to inventory");
 			 System.out.println("Option 3: Edit Item in Inventory");
@@ -120,10 +121,11 @@ public class LoginController {
 			 System.out.println("Option 5: View Current Offers");
 			 System.out.println("Option 6: Employee Task Manager");
 			 System.out.println("Option 7: Add Employee");
-			 System.out.println("Option 8: Remove Employee");
-			 System.out.println("Option 9: Sales History");
-			 System.out.println("Option 10: Start Giveaway");
-			 System.out.println("Option 11: Exit and Logout");
+			 System.out.println("Option 8: Edit Employee Name");
+			 System.out.println("Option 9: Remove Employee");
+			 System.out.println("Option 10: Sales History");
+			 System.out.println("Option 11: Start Giveaway");
+			 System.out.println("Option 12: Exit and Logout");
 			 int oMenu = sc.nextInt();
 			 switch (oMenu) {
 			 case 1: System.out.println("Store Inventory");
@@ -140,13 +142,16 @@ public class LoginController {
 				 break;
 			 case 7: //
 				 break;
-			 case 8: //
+			 case 8: es.update(principal);
+			 OwnerMenu();
 				 break;
 			 case 9: //
 				 break;
 			 case 10: //
 				 break;
 			 case 11: //
+				 break;
+			 case 12: //
 				 System.out.println("Have a great day, boss!");
 				 sc.close();
 				 EntryController.menuEntry();

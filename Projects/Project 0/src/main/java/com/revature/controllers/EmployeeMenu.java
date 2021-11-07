@@ -38,7 +38,7 @@ public class EmployeeMenu {
 				System.out.println("Oops, something has gone wrong. Let's try again.");
 				menuEmployeeLanding();
 			}
-			Employee newEmp = new Employee(EmployeeName, EmployeeUserName, EmployeePassword, Role.BASIC_EMPLOYEE, 1);
+			Employee newEmp = new Employee(EmployeeName, EmployeeUserName, EmployeePassword, Role.BASIC_EMPLOYEE);
 			
 			try {
 				newEmp = EmployeeService.addEmployee(newEmp);

@@ -21,9 +21,7 @@ public class EmployeeService {
 		if (newEmp != null) {
 			throw new UsernameAlreadyExistsException();
 		}
-		e.setRole(Role.BASIC_EMPLOYEE);
-		e.setMan_id(1);
-		
+
 
 		return ed.add(e);
 	}
@@ -40,8 +38,11 @@ public class EmployeeService {
 
 	public Employee login(String username, String password) throws LoginException {
 		Employee emp = EmployeeService.getEmployeeByUsername(username);
+		System.out.println("Role of Employee " + emp.getRole());
+		//System.out.println(emp.toString());
 		if(emp == null || !emp.getPassword().equals(password)) {
 			throw new LoginException();
+			
 		}switch (emp.getRole()) {
 		case ADMIN:
 //			adminMenu();
@@ -70,4 +71,9 @@ public class EmployeeService {
 			
 		return emp;
 	}
+
+	public boolean update(Employee t) {
+		return ed.update(t);
+	}
+	
 }
