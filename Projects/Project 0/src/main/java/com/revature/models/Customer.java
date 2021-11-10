@@ -1,33 +1,50 @@
 package com.revature.models;
 
 public class Customer {
+private int cId;	
 private String cName;
 private String cUserName;
 private String cPassword;
 private String cEmail;
 private int cCard;
 private boolean isGiveawayEligible;
-private static Role role;
+private Role role;
 
 public Customer() {
 	super();
 }
-public Customer(String cName, String cUserName, String cPassword, String cEmail, int cCard,
-		boolean isGiveawayEligible) {
+
+
+
+public Customer(int cId, String cName, String cUserName, String cPassword, String cEmail, int cCard,
+		boolean isGiveawayEligible, Role role) {
 	super();
+	this.cId = cId;
 	this.cName = cName;
 	this.cUserName = cUserName;
 	this.cPassword = cPassword;
 	this.cEmail = cEmail;
 	this.cCard = cCard;
 	this.isGiveawayEligible = isGiveawayEligible;
+	this.role = role;
 }
-public Customer(String cName, String cUserName, String cPassword) {
+
+
+
+
+public Customer(String cName, String cUserName, String cPassword, String cEmail, boolean isGiveawayEligible,
+		Role role) {
 	super();
 	this.cName = cName;
 	this.cUserName = cUserName;
 	this.cPassword = cPassword;
+	this.cEmail = cEmail;
+	this.isGiveawayEligible = isGiveawayEligible;
+	this.role = role;
 }
+
+
+
 public String getcName() {
 	return cName;
 }
@@ -64,24 +81,52 @@ public boolean isGiveawayEligible() {
 public void setGiveawayEligible(boolean isGiveawayEligible) {
 	this.isGiveawayEligible = isGiveawayEligible;
 }
-public static Role getRole() {
+
+
+
+public int getcId() {
+	return cId;
+}
+
+public void setcId(int cId) {
+	this.cId = cId;
+}
+
+
+
+public Role getRole() {
 	return role;
 }
-public static void setRole(Role role) {
-	Customer.role = role;
+
+
+
+public void setRole(Role role) {
+	this.role = role;
 }
+
+
+
+
+
+
+
 @Override
 public int hashCode() {
 	final int prime = 31;
 	int result = 1;
 	result = prime * result + cCard;
 	result = prime * result + ((cEmail == null) ? 0 : cEmail.hashCode());
+	result = prime * result + cId;
 	result = prime * result + ((cName == null) ? 0 : cName.hashCode());
 	result = prime * result + ((cPassword == null) ? 0 : cPassword.hashCode());
 	result = prime * result + ((cUserName == null) ? 0 : cUserName.hashCode());
 	result = prime * result + (isGiveawayEligible ? 1231 : 1237);
+	result = prime * result + ((role == null) ? 0 : role.hashCode());
 	return result;
 }
+
+
+
 @Override
 public boolean equals(Object obj) {
 	if (this == obj)
@@ -97,6 +142,8 @@ public boolean equals(Object obj) {
 		if (other.cEmail != null)
 			return false;
 	} else if (!cEmail.equals(other.cEmail))
+		return false;
+	if (cId != other.cId)
 		return false;
 	if (cName == null) {
 		if (other.cName != null)
@@ -115,13 +162,24 @@ public boolean equals(Object obj) {
 		return false;
 	if (isGiveawayEligible != other.isGiveawayEligible)
 		return false;
+	if (role != other.role)
+		return false;
 	return true;
 }
+
+
+
 @Override
 public String toString() {
-	return "Customer [cName=" + cName + ", cUserName=" + cUserName + ", cPassword=" + cPassword + ", cEmail=" + cEmail
-			+ ", cCard=" + cCard + ", isGiveawayEligible=" + isGiveawayEligible + "]";
+	return "Customer [cId=" + cId + ", cName=" + cName + ", cUserName=" + cUserName + ", cPassword=" + cPassword
+			+ ", cEmail=" + cEmail + ", cCard=" + cCard + ", isGiveawayEligible=" + isGiveawayEligible + ", role="
+			+ role + "]";
 }
+
+
+
+
+
 
 
 }

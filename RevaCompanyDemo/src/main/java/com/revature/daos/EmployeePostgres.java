@@ -109,7 +109,7 @@ public class EmployeePostgres implements EmployeeDao {
 	@Override
 	public boolean updateEmployee(Employee employee) {
 		boolean result = false;
-		String sql = "Update employees set e_name=? where e_id=?";
+		String sql = "Update employees set e_name=? where e_id=?;";
 		try(Connection con = ConnectionUtil.getConnectionFromEnv()){
 			PreparedStatement ps = con.prepareStatement(sql);
 				ps.setString(1, "Bobby Furniture");

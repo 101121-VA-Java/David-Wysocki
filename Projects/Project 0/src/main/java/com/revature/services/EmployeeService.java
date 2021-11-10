@@ -3,14 +3,13 @@ package com.revature.services;
 import java.util.List;
 
 import com.revature.repositories.EmployeeDao;
-import com.revature.repositories.EmployeeList;
 import com.revature.repositories.EmployeePostgres;
 import com.revature.controllers.EntryController;
 import com.revature.controllers.LoginController;
 import com.revature.exceptions.LoginException;
 import com.revature.exceptions.UsernameAlreadyExistsException;
 import com.revature.models.Employee;
-import com.revature.models.Role;
+
 
 public class EmployeeService {
 
@@ -31,21 +30,20 @@ public class EmployeeService {
 		for (Employee e : employees) {
 			if (e.getUsername().equals(username)) {
 				return e;
-			}
+			} else { 
 		}
 		return null;
 	}
 
 	public Employee login(String username, String password) throws LoginException {
 		Employee emp = EmployeeService.getEmployeeByUsername(username);
-		System.out.println("Role of Employee " + emp.getRole());
-		//System.out.println(emp.toString());
+		System.out.println("ID of User " + emp.getId());
 		if(emp == null || !emp.getPassword().equals(password)) {
 			throw new LoginException();
 			
 		}switch (emp.getRole()) {
 		case ADMIN:
-//			adminMenu();
+			LoginController.EmployeeMenu();
 			break;
 		case BASIC_EMPLOYEE:
 			LoginController.EmployeeMenu();
@@ -74,6 +72,9 @@ public class EmployeeService {
 
 	public boolean update(Employee t) {
 		return ed.update(t);
+	}
+	public boolean delete(Employee t) {
+		return ed.deleteById(t);
 	}
 	
 }

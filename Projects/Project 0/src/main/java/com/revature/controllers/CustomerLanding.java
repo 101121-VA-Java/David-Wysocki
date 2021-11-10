@@ -2,6 +2,11 @@ package com.revature.controllers;
 
 import java.util.Scanner;
 
+import com.revature.exceptions.UsernameAlreadyExistsException;
+import com.revature.models.Customer;
+import com.revature.models.Role;
+import com.revature.services.CustomerService;
+
 public class CustomerLanding {
 	static Scanner csMenu = new Scanner(System.in);
 	
@@ -33,12 +38,21 @@ public class CustomerLanding {
 				System.out.println("Oops, something did not go right. Let's try again!");
 				menuCustomerLanding(); 
 			}
-			System.out.println("Congratulations! You are registered. You may now login.");
-			//Insert method to save data to Database.
+			Customer newCust = new Customer(csName, csUsername, csPassword, csEmail, true, Role.CUSTOMER);
+			
+			try {
+				newCust = CustomerService.addCustomer(newCust);
+				System.out.println("Congratulations! You are registered. You may now login.");
+			} catch (UsernameAlreadyExistsException c) {
+				System.out.println("Username is already in use.\nPlease try again.");
+				menuCustomerLanding();
+			}
+			
+			
 			menuCustomerLanding();
 			break;
-		case 2:
-			break; //Add login functionality.
+		case 2: LoginController.crun();
+			break; 
 		case 3:
 			EntryController.menuEntry();
 			break;

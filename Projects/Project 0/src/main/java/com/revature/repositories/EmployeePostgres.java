@@ -18,7 +18,6 @@ public class EmployeePostgres implements EmployeeDao {
 	@Override
 	public Employee add(Employee t) {
 
-
 		String sql = "insert into employees (e_name, e_username, e_password, e_role, man_e_id) "
 				+ "values (?, ?, ?, ?, ?) returning e_id;";
 
@@ -33,15 +32,12 @@ public class EmployeePostgres implements EmployeeDao {
 
 			ResultSet rs = ps.executeQuery();
 
-
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return t;
 	}
-
-
 
 	@Override
 	public List<Employee> getAll() {
@@ -78,29 +74,52 @@ public class EmployeePostgres implements EmployeeDao {
 		String updatename = epscan.nextLine();
 		System.out.println("Please input Employee's ID.");
 		int upid = epscan.nextInt();
-		
+
 		String sql = "Select * from employees; Update employees set e_name=? where e_id=?;";
-		try(Connection con = ConnectionUtil.getConnectionFromEnv()){
+		try (Connection con = ConnectionUtil.getConnectionFromEnv()) {
 			PreparedStatement ps = con.prepareStatement(sql);
-			
-				ps.setString(1, updatename);
-				ps.setInt(2, upid);
-				ps.executeUpdate();
-				
-				result = true;
-				
+
+			ps.setString(1, updatename);
+			ps.setInt(2, upid);
+			ps.execute();
+
+			result = true;
+
 		} catch (SQLException e) {
-			
+
 			e.printStackTrace();
 		}
 		return result;
-		
+
 	}
 
 	@Override
-	public boolean deleteById(int id) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean deleteById(Employee t) {
+		boolean result = false;
+		boolean edContinue = false;
+		int id;
+		System.out.println("Enter ID of employee you would like to remove");
+		String sql = "delete from employees where e_id = ?;";
+		Scanner epscan = new Scanner(System.in);
+		id = epscan.nextInt();
+		System.out.println("Are you sure you want to delete id#" + id + "?");
+		edContinue = epscan.nextBoolean();
+		if (edContinue == true) {
+
+			try (Connection con = ConnectionUtil.getConnectionFromEnv();) {
+				PreparedStatement ps = con.prepareStatement(sql);
+				ps.setInt(1, id);
+				ps.execute();
+				result = true;
+
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		} else {
+			System.out.println("Operation cancelled, returning to menu.");
+		}
+		return result;
 	}
 
 	@Override
@@ -111,7 +130,7 @@ public class EmployeePostgres implements EmployeeDao {
 		try (Connection con = ConnectionUtil.getConnectionFromEnv()) {
 			PreparedStatement ps = con.prepareStatement(sql);
 
-			ps.setInt(1, id); // 1 refers to the first '?'
+			ps.setInt(1, id);
 
 			ResultSet rs = ps.executeQuery();
 
@@ -124,16 +143,12 @@ public class EmployeePostgres implements EmployeeDao {
 				int man_id = rs.getInt("man_e_id");
 
 				emp = new Employee(e_id, name, e_username, e_password, role, new Employee(man_id));
-				
+
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		return emp;
 	}
-
-
-
-	
 
 }

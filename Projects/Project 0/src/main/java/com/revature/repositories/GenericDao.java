@@ -11,5 +11,5 @@ T add (T t);
 T getById(int id);
 List<T> getAll();
 boolean update(T t);
-boolean deleteById(int id);
+boolean deleteById(T t);
 }

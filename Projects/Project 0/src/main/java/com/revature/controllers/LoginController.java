@@ -1,18 +1,23 @@
 package com.revature.controllers;
 
-import com.revature.controllers.*;
 import java.util.Scanner;
 
 import com.revature.exceptions.LoginException;
+import com.revature.models.Bird;
+import com.revature.models.Customer;
 import com.revature.models.Employee;
-import com.revature.models.Role;
-import com.revature.repositories.EmployeePostgres;
+import com.revature.models.Task;
+import com.revature.services.BirdService;
+import com.revature.services.CustomerService;
 import com.revature.services.EmployeeService;
+import com.revature.services.TaskService;
 
 public class LoginController {
 
 	private static EmployeeService es = new EmployeeService();
+	private static CustomerService cs = new CustomerService();
 	private static Employee principal;
+	private static Customer hold;
 	static Scanner sc = new Scanner(System.in);
 
 	public static void run() {
@@ -36,25 +41,50 @@ public class LoginController {
 
 	}
 
+	public static void crun() {
+
+		System.out.println("Please enter your username:");
+		String username = sc.nextLine();
+
+		System.out.println("Please enter your password:");
+		String password = sc.nextLine();
+		System.out.println("Checking credentials");
+		try {
+			hold = cs.login(username, password);
+
+		} catch (LoginException c) {
+			System.out.println("Invalid credentials.");
+			EntryController.menuEntry();
+		}
+		System.out.println("Logged in.");
+		EntryController.menuEntry();
+		sc.close();
+	}
+
 	public static void EmployeeMenu() {
 		System.out.println("Employee Menu: Please select from the list of available options");
 		System.out.println("Option 1: Assigned Tasks");
-		System.out.println("Option 2: Customer Assistance");
+		System.out.println("Option 2: Complete Task");
 		System.out.println("Option 3: Log out and Exit");
 		Scanner sc = new Scanner(System.in);
 		int EmployeeIn = sc.nextInt();
 		switch (EmployeeIn) {
 		case 1:
-			System.out.println("Task Menu:");
-			
-			// Add task functionality here
+			System.out.println("Enter your ID#.");
+			int taskid = sc.nextInt();
+			TaskService.getById(taskid);
+			EmployeeMenu();
+
 			break;
 		case 2:
-			System.out.println("Customer Assistance");
+			System.out.println("Update Task to Complete");
+			TaskService.update(null);
+			EmployeeMenu();
 			break;
 		case 3:
-			System.out.println("Logging out");
-			sc.close();
+			System.out.println("Logging out and returning to main menu. Have a great day!");
+			EntryController.main(null);
+
 			break;
 
 		default:
@@ -74,92 +104,282 @@ public class LoginController {
 		System.out.println("Option 4: Log off and Exit");
 		int cmInput = sc.nextInt();
 		switch (cmInput) {
-		case 1: //Implement store inventory function
+		case 1:
+			System.out.println("Store Inventory");
+			System.out.println(BirdService.getAll());
+			CustomerMenu();
 			break;
-		case 2: //Implement offer function correlating between ID and an int value.
+		case 2: // Implement offer function correlating between ID and an int value.
 			break;
-		case 3: //set up new menu path that has edit account feature and financing payments info.
+		case 3: // set up new menu path that has edit account feature and financing payments
+				// info.
 			break;
-		case 4: 
+		case 4:
 			System.out.println("Have a good day! Logging off.");
 			sc.close();
 			EntryController.menuEntry();
-			default:
-				System.out.println("That's not a valid input. ");
+		default:
+			System.out.println("Not a valid option returning to menu.");
+			LoginController.CustomerMenu();
+			break;
 		}
-		
-		
+
 	}
-	 public static void ManagerMenu() {
-		 System.out.println("Manager Menu - Please select from one of the available options");
-		 System.out.println("Option 1: View Store Inventory");
-		 System.out.println("Option 2: Add to inventory");
-		 System.out.println("Option 3: Edit Item in Inventory");
-		 System.out.println("Option 4: Remove from Inventory");
-		 System.out.println("Option 5: View Current Offers");
-		 System.out.println("Option 6: Employee Task Manager");
-		 System.out.println("Option 7: Add Employee");
-		 System.out.println("Option 8: Remove Employee");
-		 System.out.println("Option 9: Sales History");
-		//add switch and functionality
-	  }
-	 public static void SupervisorMenu(){ 
-		 System.out.println("Supervisor Menu - Please select from one of the available options");
-		 System.out.println("Option 1: View Tasks");
-		 System.out.println("Option 2: Assign Tasks");
-		 System.out.println("Option 3: Customer Assistance");
-		 //add switch and functionality
-		 
-	 }
-	 
-	  public static void OwnerMenu() {
-		  System.out.println("Owner Menu - Please select from one of the available options");
-			 System.out.println("Option 1: View Store Inventory");
-			 System.out.println("Option 2: Add to inventory");
-			 System.out.println("Option 3: Edit Item in Inventory");
-			 System.out.println("Option 4: Remove from Inventory");
-			 System.out.println("Option 5: View Current Offers");
-			 System.out.println("Option 6: Employee Task Manager");
-			 System.out.println("Option 7: Add Employee");
-			 System.out.println("Option 8: Edit Employee Name");
-			 System.out.println("Option 9: Remove Employee");
-			 System.out.println("Option 10: Sales History");
-			 System.out.println("Option 11: Start Giveaway");
-			 System.out.println("Option 12: Exit and Logout");
-			 int oMenu = sc.nextInt();
-			 switch (oMenu) {
-			 case 1: System.out.println("Store Inventory");
-				 break;
-			 case 2: //
-				 break;
-			 case 3: //
-				 break;
-			 case 4: //
-				 break;
-			 case 5: //
-				 break;
-			 case 6: //
-				 break;
-			 case 7: //
-				 break;
-			 case 8: es.update(principal);
-			 OwnerMenu();
-				 break;
-			 case 9: //
-				 break;
-			 case 10: //
-				 break;
-			 case 11: //
-				 break;
-			 case 12: //
-				 System.out.println("Have a great day, boss!");
-				 sc.close();
-				 EntryController.menuEntry();
-				 break;
-				 default: System.out.println("Not a valid option returning to menu.");
-				 LoginController.OwnerMenu();
-				 break;
-			 }
-	  }
-	 
+
+	public static void ManagerMenu() {
+		System.out.println("Manager Menu - Please select from one of the available options");
+		System.out.println("Option 1: View Store Inventory");
+		System.out.println("Option 2: Add to inventory");
+		System.out.println("Option 3: Edit Item in Inventory");
+		System.out.println("Option 4: Remove from Inventory");
+		System.out.println("Option 5: View Current Offers");
+		System.out.println("Option 6: Assign Tasks");
+		System.out.println("Option 7: View Current Task");
+		System.out.println("Option 8: Mark Task as Complete");
+		System.out.println("Option 9: Add Employee");
+		System.out.println("Option 10: Remove Employee");
+		System.out.println("Option 11: Sales History");
+		System.out.println("Option 12: Log out and Exit");
+		Scanner manscan = new Scanner(System.in);
+		try {
+			int manoption = manscan.nextInt();
+			switch (manoption) {
+			case 1:
+				System.out.println("Store Inventory");
+				System.out.println(BirdService.getAll());
+
+				ManagerMenu();
+				break;
+			case 2:
+				System.out.println("What is the bird's Band ID?");
+				int band = manscan.nextInt();
+				System.out.println("What breed of bird is it?");
+				String type = manscan.next();
+				System.out.println("What's the bird's name?");
+				String name = manscan.next();
+				System.out.println("What is the price of the bird?");
+				float price = manscan.nextFloat();
+
+				Bird b = new Bird(band, type, name, price);
+				BirdService.addBird(b);
+				System.out.println(name + " has joined the flock!");
+				ManagerMenu();
+				break;
+			case 3: 
+				System.out.println("What is the bird's ID you'd like to change?");
+				int editbird = manscan.nextInt();
+				Bird updatebird = BirdService.getById(editbird);
+				
+				BirdService.editBird(updatebird);
+				System.out.println("Bird has been updated!");
+				ManagerMenu();
+			
+
+				break;
+			case 4: System.out.println("What is the bird's ID you'd like to remove?");
+			int removebird = manscan.nextInt();
+			Bird rembird = BirdService.getById(removebird);
+			BirdService.delete(rembird);
+			System.out.println("Bird has been removed.");
+			ManagerMenu();
+
+				break;
+			case 5:
+				break;
+			case 6:
+				System.out.println("What is the name of the Task?");
+				String taskname = manscan.next();
+
+				System.out.println("Which Employee ID is this assigned to?");
+				int taskassignedto = manscan.nextInt();
+				Task t = new Task(taskname, false, taskassignedto);
+				TaskService.addTask(t);
+				System.out.println("Task assigned.");
+				ManagerMenu();
+				break;
+			case 7:
+				System.out.println("Enter your ID#.");
+				int taskid = manscan.nextInt();
+				TaskService.getById(taskid);
+				ManagerMenu();
+				break;
+			case 8:
+				System.out.println("Update Task to Complete");
+				TaskService.update(null);
+				ManagerMenu();
+				break;
+			case 9:
+				EmployeeMenu.menuEmployeeLanding();
+
+				break;
+			case 10:
+				es.delete(principal);
+				ManagerMenu();
+				break;
+			case 11:
+				break;
+			case 12:
+				System.out.println("Logging out and returning to main menu. Have a great day!");
+				EntryController.main(null);
+			default:
+				System.out.println("Not a valid option returning to menu.");
+				LoginController.ManagerMenu();
+				break;
+
+			}
+
+		} finally {
+			manscan.close();
+		}
+
+	}
+
+	public static void SupervisorMenu() {
+		System.out.println("Supervisor Menu - Please select from one of the available options");
+		System.out.println("Option 1: View Tasks");
+		System.out.println("Option 2: Assign Tasks");
+		System.out.println("Option 3: Mark Task as Complete");
+		System.out.println("Option 4: Logout and Exit");
+		Scanner smscan = new Scanner(System.in);
+
+		try {
+			int smoption = smscan.nextInt();
+			switch (smoption) {
+			case 1:
+				System.out.println("Enter your ID#.");
+				int taskid = smscan.nextInt();
+				TaskService.getById(taskid);
+				SupervisorMenu();
+				break;
+			case 2:
+				smscan.nextLine();
+				System.out.println("What is the name of the Task?");
+				String taskname = smscan.nextLine();
+
+				System.out.println("Which Employee ID is this assigned to?");
+				int taskassignedto = smscan.nextInt();
+				Task t = new Task(taskname, false, taskassignedto);
+				TaskService.addTask(t);
+				System.out.println("Task assigned.");
+				SupervisorMenu();
+				break;
+			case 3:
+				System.out.println("Update Task to Complete");
+				TaskService.update(null);
+				SupervisorMenu();
+				break;
+			case 4:
+				System.out.println("Logging out and returning to start menu. Have a great day!");
+				EntryController.main(null);
+				break;
+			default:
+				System.out.println("Not a valid option returning to menu.");
+				LoginController.SupervisorMenu();
+				break;
+			}
+
+		} finally {
+			smscan.close();
+		}
+
+	}
+
+	public static void OwnerMenu() {
+		System.out.println("Owner Menu - Please select from one of the available options");
+		System.out.println("Option 1: View Store Inventory");
+		System.out.println("Option 2: Add to inventory");
+		System.out.println("Option 3: Edit Item in Inventory");
+		System.out.println("Option 4: Remove from Inventory");
+		System.out.println("Option 5: View Current Offers");
+		System.out.println("Option 6: Assign Employee Task");
+		System.out.println("Option 7: Add Employee");
+		System.out.println("Option 8: Edit Employee Name");
+		System.out.println("Option 9: Remove Employee");
+		System.out.println("Option 10: Sales History");
+		System.out.println("Option 11: Start Giveaway");
+		System.out.println("Option 12: Exit and Logout");
+		int oMenu = sc.nextInt();
+		sc.nextLine();
+		switch (oMenu) {
+		case 1:
+			System.out.println("Store Inventory");
+			System.out.println(BirdService.getAll());
+			OwnerMenu();
+			break;
+		case 2:
+			Scanner addb = new Scanner(System.in);
+			System.out.println("What is the bird's Band ID?");
+			int band = addb.nextInt();
+			System.out.println("What breed of bird is it?");
+			String type = addb.next();
+			System.out.println("What's the bird's name?");
+			String name = addb.next();
+			System.out.println("What is the price of the bird?");
+			float price = addb.nextFloat();
+
+			Bird b = new Bird(band, type, name, price);
+			BirdService.addBird(b);
+			System.out.println(name + " has joined the flock!");
+
+			OwnerMenu();
+
+			break;
+		case 3: System.out.println("What is the bird's ID you'd like to change?");
+		int editbird = sc.nextInt();
+		Bird updatebird = BirdService.getById(editbird);
+		
+		BirdService.editBird(updatebird);
+		System.out.println("Bird has been updated!");
+		OwnerMenu();
+			break;
+		case 4: System.out.println("What is the bird's ID you'd like to remove?");
+		int removebird = sc.nextInt();
+		Bird rembird = BirdService.getById(removebird);
+		BirdService.delete(rembird);
+		System.out.println("Bird has been removed.");
+			break;
+		case 5: //
+			break;
+		case 6:
+			sc.nextLine();
+			System.out.println("What is the name of the Task?");
+			String taskname = sc.nextLine();
+
+			System.out.println("Which Employee ID is this assigned to?");
+			int taskassignedto = sc.nextInt();
+			Task t = new Task(taskname, false, taskassignedto);
+			TaskService.addTask(t);
+			System.out.println("Task assigned.");
+			OwnerMenu();
+			break;
+		case 7:
+			EmployeeMenu.menuEmployeeLanding();
+
+			break;
+		case 8:
+			es.update(principal);
+			OwnerMenu();
+			break;
+		case 9:
+			es.delete(principal);
+			OwnerMenu();
+			break;
+		case 10: //
+			break;
+		case 11: //
+			break;
+		case 12:
+			System.out.println("Have a great day, boss!");
+
+			EntryController.menuEntry();
+			sc.close();
+			break;
+
+		default:
+			System.out.println("Not a valid option returning to menu.");
+			LoginController.OwnerMenu();
+			break;
+		}
+	}
+
 }
