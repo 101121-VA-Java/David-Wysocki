@@ -1,0 +1,92 @@
+drop table if exists employees;
+create table if not exists employees(
+	e_id serial primary key,
+	e_name varchar(50) not null,
+	e_username varchar(50) unique,
+	e_password varchar(50) not null,
+	e_role varchar(50) not null,
+	man_e_id integer
+);
+insert into employees (e_name, e_username, e_password, e_role, man_e_id) values ('David', 'Chibby', 'acreativepassword', 'OWNER', '1');
+insert into employees (e_name, e_username, e_password, e_role, man_e_id) values ('Morgana', 'Moogie', 'bosslady', 'MANAGER', '1');
+insert into employees (e_name, e_username, e_password, e_role, man_e_id) values ('Jamey', 'jshitliff2', 'TI8WmGhx7O', 'MANAGER', '1');
+insert into employees (e_name, e_username, e_password, e_role, man_e_id) values ('Dolley', 'dsnellman3', 'jyu4Ki', 'SUPERVISOR', '1');
+insert into employees (e_name, e_username, e_password, e_role, man_e_id) values ('Carol-jean', 'cfulop4', '4V2DBXD7lDo', 'SUPERVISOR', '1');
+insert into employees (e_name, e_username, e_password, e_role, man_e_id) values ('Myrlene', 'melwel5', 'QNHeHfs', 'BASIC_EMPLOYEE', '1');
+insert into employees (e_name, e_username, e_password, e_role, man_e_id) values ('Sheilakathryn', 'slothean6', 'YypSfI3ovljB', 'BASIC_EMPLOYEE', '1');
+insert into employees (e_name, e_username, e_password, e_role, man_e_id) values ('Colas', 'czollner7', 'qSXz2K', 'BASIC_EMPLOYEE', '1');
+insert into employees (e_name, e_username, e_password, e_role, man_e_id) values ('Nicola', 'nclare8', 'u84mNA450', 'BASIC_EMPLOYEE', '1');
+insert into employees (e_name, e_username, e_password, e_role, man_e_id) values ('Grier', 'gginty9', 'BtsPdjehAc', 'BASIC_EMPLOYEE', '1');
+
+insert into employees (e_name, e_username, e_password, e_role, man_e_id) values ('bob', 'test', 'test', 'test', '1');
+
+foreign key man_e_id references employees(man_e_id);
+
+insert into employees (e_name, e_username, e_password, e_role, man_e_id) values ('testing', 'testing', 'testing', 'MANAGER', '0');
+select * from employees;
+select e_role where e_id = 3;
+insert into employees (e_name, e_username, e_password, e_role, man_e_id) values ('test1', 'testing1', 'testing', 'OWNER', '0');
+insert into employees (e_name, e_username, e_password, e_role, man_e_id) values ('test2', 'testing2', 'testing', 'SUPERVISOR', '0');
+insert into employees (e_name, e_username, e_password, e_role, man_e_id) values ('test3', 'testing3', 'testing', 'MANAGER', '0');
+insert into employees (e_name, e_username, e_password, e_role, man_e_id) values ('test4', 'testing4', 'testing', 'SUPERVISOR', '0');
+
+update employees set e_name = 'Jamison' where e_id = 3;
+
+drop table if exists customers;
+create table if not exists customers(
+	c_id serial primary key,
+	c_name varchar(50) not null,
+	c_username varchar(50) unique,
+	c_password varchar(50) not null,
+	c_email varchar(50) unique,
+	c_role varchar(50) not null,
+	c_isgiveawayeligible boolean,
+	c_card integer);
+
+insert into customers (c_name, c_username, c_password, c_email, c_role, c_isgiveawayeligible, c_card ) values ('Bob Dillinger', 'Bobbyd', 'ratherbefishing', 'ratherbefishing@msn.com', 'CUSTOMER', 'true','123456789');
+
+drop table if exists tasks;
+create table if not exists tasks(
+t_id serial primary key,
+t_name varchar(50) not null,
+t_iscomplete boolean not null,
+t_user int,
+foreign key (t_user) references employees(e_id) on delete cascade);
+
+insert into tasks (t_name, t_iscomplete, t_user) values ('Inventory', 'false', '2');
+insert into tasks (t_name, t_iscomplete, t_user) values ('Check tasks', 'false', '3');
+insert into tasks (t_name, t_iscomplete, t_user) values ('Stock shelves', 'false', '7');
+insert into tasks (t_name, t_iscomplete, t_user) values ('Mop', 'false', '8');
+insert into tasks (t_name, t_iscomplete, t_user) values ('Inventory', 'false', '4');
+insert into tasks (t_name, t_iscomplete, t_user) values ('Inventory', 'false', '5');
+select * from Tasks where t_user = '2';
+
+select * from employees, tasks
+where (e_id = '8' and e_id = t_user and t_iscomplete = false);
+
+drop table if exists birds;
+create table if not exists birds(
+b_id serial primary key,
+b_band int not null,
+b_type varchar(50) not null,
+b_name varchar(50) not null,
+b_stock boolean not null,
+b_price float not null,
+b_owner int,
+foreign key (b_owner) references customers(c_id));
+insert into birds (b_band, b_type, b_name, b_stock, b_price, b_owner) values ('123456', 'Caique', 'Pachinko', 'true', '599.99', '1');
+savepoint A;
+
+drop table if exists customer_ownership;
+create table if not exists customer_ownership(
+
+c_id int references customers(c_id),
+b_id int references birds(b_id));
+
+drop table if exists offers;
+create table if not exists offers(
+o_id serial primary key,
+c_id int references customers(c_id),
+i_id int references birds(b_id),
+o_amount float not null,
+isaccepted boolean default false);
