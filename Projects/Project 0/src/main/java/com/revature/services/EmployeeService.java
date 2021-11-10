@@ -25,16 +25,19 @@ public class EmployeeService {
 		return ed.add(e);
 	}
 
-	public static Employee getEmployeeByUsername(String username) {
+	 static Employee getEmployeeByUsername(String username) {
+		
 		List<Employee> employees = ed.getAll();
 		for (Employee e : employees) {
 			if (e.getUsername().equals(username)) {
+				
 				return e;
 			} else { 
 		}
+		
+	}
 		return null;
 	}
-
 	public Employee login(String username, String password) throws LoginException {
 		Employee emp = EmployeeService.getEmployeeByUsername(username);
 		System.out.println("ID of User " + emp.getId());

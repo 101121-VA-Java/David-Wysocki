@@ -38,6 +38,13 @@ public class Employee {
 		this.role = role;
 	}
 
+	
+
+	public Employee(String username) {
+		super();
+		this.username = username;
+	}
+
 	public int getId() {
 		return id;
 	}

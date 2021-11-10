@@ -6,11 +6,13 @@ import com.revature.exceptions.LoginException;
 import com.revature.models.Bird;
 import com.revature.models.Customer;
 import com.revature.models.Employee;
+import com.revature.models.Offers;
 import com.revature.models.Task;
 import com.revature.services.BirdService;
 import com.revature.services.CustomerService;
 import com.revature.services.EmployeeService;
 import com.revature.services.TaskService;
+import com.revature.services.OfferService;
 
 public class LoginController {
 
@@ -109,14 +111,24 @@ public class LoginController {
 			System.out.println(BirdService.getAll());
 			CustomerMenu();
 			break;
-		case 2: // Implement offer function correlating between ID and an int value.
+		case 2: System.out.println("What is your customer ID?");
+		int custid = sc.nextInt();
+		System.out.println("What is the item's ID you are making an offer on?");
+		int itemid = sc.nextInt();
+		System.out.println("What is the amount you would like to offer?");
+		float offeramount = sc.nextFloat();
+		Offers o = new Offers(custid, itemid, offeramount);
+		OfferService.submitoffer(o);
+		System.out.println("Offer has been submitted and pending approval.");
+		CustomerMenu();
 			break;
-		case 3: // set up new menu path that has edit account feature and financing payments
-				// info.
+		case 3: 
+		
+		
 			break;
 		case 4:
 			System.out.println("Have a good day! Logging off.");
-			sc.close();
+			
 			EntryController.menuEntry();
 		default:
 			System.out.println("Not a valid option returning to menu.");
@@ -138,7 +150,7 @@ public class LoginController {
 		System.out.println("Option 8: Mark Task as Complete");
 		System.out.println("Option 9: Add Employee");
 		System.out.println("Option 10: Remove Employee");
-		System.out.println("Option 11: Sales History");
+		System.out.println("Option 11: Approve Offer");
 		System.out.println("Option 12: Log out and Exit");
 		Scanner manscan = new Scanner(System.in);
 		try {
@@ -184,7 +196,8 @@ public class LoginController {
 			ManagerMenu();
 
 				break;
-			case 5:
+			case 5: System.out.println(OfferService.getAll());
+			ManagerMenu();
 				break;
 			case 6:
 				System.out.println("What is the name of the Task?");
@@ -216,7 +229,8 @@ public class LoginController {
 				es.delete(principal);
 				ManagerMenu();
 				break;
-			case 11:
+			case 11: OfferService.update(null);
+			ManagerMenu();
 				break;
 			case 12:
 				System.out.println("Logging out and returning to main menu. Have a great day!");
@@ -296,7 +310,7 @@ public class LoginController {
 		System.out.println("Option 8: Edit Employee Name");
 		System.out.println("Option 9: Remove Employee");
 		System.out.println("Option 10: Sales History");
-		System.out.println("Option 11: Start Giveaway");
+		System.out.println("Option 11: Approve Offer");
 		System.out.println("Option 12: Exit and Logout");
 		int oMenu = sc.nextInt();
 		sc.nextLine();
@@ -338,7 +352,8 @@ public class LoginController {
 		BirdService.delete(rembird);
 		System.out.println("Bird has been removed.");
 			break;
-		case 5: //
+		case 5: System.out.println(OfferService.getAll());
+		OwnerMenu();
 			break;
 		case 6:
 			sc.nextLine();
@@ -366,7 +381,9 @@ public class LoginController {
 			break;
 		case 10: //
 			break;
-		case 11: //
+		case 11: OfferService.update(null);
+		OwnerMenu();
+		
 			break;
 		case 12:
 			System.out.println("Have a great day, boss!");
