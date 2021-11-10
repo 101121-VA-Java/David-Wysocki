@@ -5090,3 +5090,9 @@ org.eclipse.core.runtime.CoreException: Launch configuration EntryController ref
 
 !ENTRY org.eclipse.m2e.logback.appender 2 0 2021-11-10 09:42:32.640
 !MESSAGE Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2021-11-10 10:44:15.668
+!MESSAGE Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2021-11-10 10:44:15.673
+!MESSAGE Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
