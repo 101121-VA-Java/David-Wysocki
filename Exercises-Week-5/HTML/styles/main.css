@@ -78,3 +78,7 @@ footer div {
 main {
   padding: 1.5em;
 }
+.test {
+  font-weight: bold;
+  letter-spacing: 0.85px;
+}

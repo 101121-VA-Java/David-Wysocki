@@ -1,41 +1,41 @@
-package com.revature.daos;
+//package com.revature.daos;
+//
+//import static org.junit.jupiter.api.Assertions.assertEquals;
+//import static org.junit.jupiter.api.Assertions.assertFalse;
+//
+//import java.util.ArrayList;
+//import java.util.List;
+//
+//import org.junit.jupiter.api.BeforeEach;
+//import org.junit.jupiter.api.Test;
+//
+//import com.revature.models.Employee;
+//import com.revature.models.Role;
+//import com.revature.repositories.EmployeeDao;
+//import com.revature.repositories.EmployeeList;
+//import com.revature.repositories.EmployeePostgres;
+//
+//public class EmployeeDaoTest {
+//	
+//	private EmployeeDao ed = new EmployeePostgres();
+//	
+//	
+//	@BeforeEach
+//	public void setUp() {
+//		ed = new EmployeePostgres();
+//	}
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-
-import java.util.ArrayList;
-import java.util.List;
-
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-
-import com.revature.models.Employee;
-import com.revature.models.Role;
-import com.revature.repositories.EmployeeDao;
-import com.revature.repositories.EmployeeList;
-import com.revature.repositories.EmployeePostgres;
-
-public class EmployeeDaoTest {
 	
-	private EmployeeDao ed = new EmployeePostgres();
-	
-	
-	@BeforeEach
-	public void setUp() {
-		ed = new EmployeePostgres();
-	}
-
-	
-	@Test
-	public void getAll() {
-		List<Employee> expected = new ArrayList<>();
-		expected.add(new Employee(0, "Enrollment Admin", "Enrollment Admin", "AdminPass", Role.ADMIN, null));
-		expected.add(new Employee(1, "David", "Chibby", "acreativepassword", Role.OWNER, null));
-		expected.add(new Employee(2, "Morgana", "Moogie", "bosslady", Role.MANAGER, null));
-		expected.add(new Employee(3, "Jamey", "jshitliff2", "TI8WmGhx7O", Role.MANAGER, null));
-		assertEquals(expected, ed.getAllEmployees());
-	}
-	
+//	@Test
+//	public void getAll() {
+//		List<Employee> expected = new ArrayList<>();
+//		expected.add(new Employee(0, "Enrollment Admin", "Enrollment Admin", "AdminPass", Role.ADMIN, null));
+//		expected.add(new Employee(1, "David", "Chibby", "acreativepassword", Role.OWNER, null));
+//		expected.add(new Employee(2, "Morgana", "Moogie", "bosslady", Role.MANAGER, null));
+//		expected.add(new Employee(3, "Jamey", "jshitliff2", "TI8WmGhx7O", Role.MANAGER, null));
+//		assertEquals(expected, ed.getAllEmployees());
+//	}
+//	
 //	@Test
 //	public void getEmployeeByIdExist() {
 //		Employee expected = new Employee(0, "Enrollment Admin", "Enrollment Admin", "AdminPass", Role.ADMIN, null);
@@ -83,4 +83,4 @@ public class EmployeeDaoTest {
 //		
 //		assertFalse(ed.update(sut));
 //	}
-}
+//}

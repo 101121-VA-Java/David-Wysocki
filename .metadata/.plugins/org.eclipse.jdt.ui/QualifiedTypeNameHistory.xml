@@ -15,7 +15,6 @@
     <fullyQualifiedTypeName name="com.revature.repositories.EmployeePostgres"/>
     <fullyQualifiedTypeName name="com.revature.repositories.CustomerPostgres"/>
     <fullyQualifiedTypeName name="com.revature.repositories.CustomerDao"/>
-    <fullyQualifiedTypeName name="com.revature.models.Role"/>
     <fullyQualifiedTypeName name="com.revature.exceptions.UsernameAlreadyExistsException"/>
     <fullyQualifiedTypeName name="com.revature.services.TaskService"/>
     <fullyQualifiedTypeName name="com.revature.models.Task"/>
@@ -24,8 +23,21 @@
     <fullyQualifiedTypeName name="com.revature.repositories.BirdDao"/>
     <fullyQualifiedTypeName name="com.revature.repositories.BirdPostgres"/>
     <fullyQualifiedTypeName name="java.util.Scanner"/>
-    <fullyQualifiedTypeName name="com.revature.models.Bird"/>
     <fullyQualifiedTypeName name="com.revature.services.BirdService"/>
-    <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
+    <fullyQualifiedTypeName name="com.revature.repositories.OfferDao"/>
+    <fullyQualifiedTypeName name="com.revature.repositories.OfferPostgres"/>
+    <fullyQualifiedTypeName name="com.revature.services.OfferService"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="com.revature.models.Bird"/>
+    <fullyQualifiedTypeName name="com.revature.models.Offers"/>
+    <fullyQualifiedTypeName name="org.mockito.junit.jupiter.MockitoExtension"/>
+    <fullyQualifiedTypeName name="org.junit.jupiter.api.extension.ExtendWith"/>
+    <fullyQualifiedTypeName name="org.mockito.Mockito"/>
+    <fullyQualifiedTypeName name="com.revature.repositories.EmployeeDao"/>
+    <fullyQualifiedTypeName name="com.revature.models.Employee"/>
+    <fullyQualifiedTypeName name="org.mockito.Mock"/>
+    <fullyQualifiedTypeName name="org.mockito.InjectMocks"/>
+    <fullyQualifiedTypeName name="org.junit.jupiter.api.Test"/>
+    <fullyQualifiedTypeName name="com.revature.models.Role"/>
 </qualifiedTypeNameHistroy>
