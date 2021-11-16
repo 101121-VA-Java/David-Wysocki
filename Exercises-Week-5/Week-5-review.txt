@@ -1,0 +1,285 @@
+HTML
+1.	What is HTML?
+Hyper-Text-Markup-Language
+
+2.	What is the HTML5 doctype declaration?
+A Document Type Declaration, or DOCTYPE for short, is an instruction to the web browser about the version of markup language in which a web page is written
+
+3.	List some tags. What is <head> used for? <body>?
+head, body, div, li, p. contains metadata for the document, and body defines the document's body
+
+4.	What are the required tags for an HTML document?
+html, title, head, and body.
+
+5.	What is the tag for ordered list? unordered list? Change bullet styling?
+<oi>, <ul>, list-style-type.
+
+6.	What features came with HTML5? Are HTML 5 tags different from other tags?
+audio and video. nav tag. 
+
+7.	Do all tags come in a pair? List a self-closing tag.
+All tag come in pairs except for Void elements, which at the time of this writing include: area, base, br, col, embed, hr, img, input, keygen, link, meta, param, source, track, and wbr.
+
+8.	What’s the difference between an element and an attribute? List some global attributes.
+an HTML element is any object that sits on your page. An attribute provides further detail about a particular HTML element. id, class, title, style.
+
+9.	What is the syntax for a comment in HTML?
+<!-- Write your comment here -->
+
+10.	What tags would you use to create a table? A navbar? What about a form?
+<table>,<th>,<tr>,<td>. <nav>. <form>
+
+11.	What’s the difference between a class and id?
+id is unique in a page and can only apply to at most one element.
+
+12.	How would you include CSS into an HTML document? What about JS?
+<link rel="stylesheet" href="mystyle.css"> , <script src="myscripts.js">
+
+13.	What is a semantic tag? What about formatting tags/elements?
+elements with a meaning, such as nav for the navbar. Formatting tags disply special types of text such as bold.
+
+14.	What’s the difference between a block and an inline element?
+A block-level element always starts on a new line.
+A block-level element always takes up the full width available (stretches out to the left and right as far as it can).
+A block level element has a top and a bottom margin, whereas an inline element does not.
+
+CSS
+1.	What is CSS? what are the different ways of styling an html file?
+Cascading Style Sheets, internal, external, in-line.
+
+2.	Which way has highest priority when styles cascade: inline, internal, and external stylesheets. Which is best practice? Why?
+inline, internal, followed by external. external is considered best practice to keep your html seperate from your css.
+
+3.	What are the different CSS selectors? Write the syntax for each.
+element, #id, [attribute]. 
+
+4.	What is a psuedo-class? What is the syntax for selecting that?
+A CSS pseudo-class is a keyword added to a selector that specifies a special state of the selected element(s). For example, :hover can be used to change a button's color when the user's pointer hovers over it.
+
+5.	Write a CSS selector for styling all spans inside of a div. What about only targeting spans that are direct descendents of divs?
+div,span
+
+6.	Can I select multiple elements at once with CSS? If so, what is the syntax?
+yes, you can use a class selector, such as .one.two
+
+7.	Explain the concept of specificity and how it relates to styling conflicts
+Specificity is the means by which browsers decide which CSS property values are the most relevant to an element and, therefore, will be applied. Specificity is based on the matching rules which are composed of different sorts of CSS selectors.
+Type --> Class --> ID
+
+8.	Explain the CSS box model
+The CSS box model is essentially a box that wraps around every HTML element. It consists of: margins, borders, padding, and the actual content. 
+
+9.	What is Bootstrap? What are some bootstrap classes you can use?
+Bootstrap is a free and open-source CSS framework directed at responsive, mobile-first front-end web development.
+
+
+JavaScript
+Language Fundamentals
+1.	What is JavaScript? What do we use it for?
+JavaScript is a scripting or programming language that allows you to implement complex features on web pages
+
+2.	Can we run JavaScript in a web browser, on a server, or both?
+both
+
+3.	What programming paradigm(s) does JS support?
+Javascript is a multi-paradigm programming language that includes functional, object-oriented, procedural, and prototypal programming
+
+4.	What are the data types in JS?
+Boolean, null, undefined, number, BigInt, String, Symbol
+Objects.
+
+	1.	What is the type of NaN? What is the isNaN function?
+	Number,
+	Number cannot be parsed (e.g. parseInt("blabla") or Number(undefined))
+Math operation where the result is not a real number (e.g. Math.sqrt(-1))
+Operand of an argument is NaN (e.g. 7 ** NaN)
+Indeterminate form (e.g. 0 * Infinity, or undefined + undefined)
+Any operation that involves a string and is not an addition operation (e.g. "foo" / 3)
+
+	2.	What is the data type of a function?
+	function is an object
+
+	3.	What about an array?
+	object
+
+4.	What is the difference between undefined and null?
+null is the intentional abscence of the value/undefined means the value does not exist in the compiler
+
+5.	What are JS objects? what is the syntax?
+a standalone entity with properties and a type. 
+objectName.propertyName
+
+6.	What is JSON? Is it different from JS objects?
+JavaScript Object Notation. Only difference is all names in JSON must be wrapped in double quotes.
+
+7.	What are some ways you can use functions in JS?
+You can use functions as variable values in other functions.
+
+8.	What are the different scopes of variables in JS?
+Block/Function/Global
+
+	1.	What are the different ways to declare global variables?
+	Declaring a variable outside of a function and assigning a value to a variable that has not been declared.
+
+9.	What is function and variable hoisting?
+hoisting is the process where the interpreter moves the declaration of functions/variables to the top of their scope.
+
+10.	Explain how the guard and default operators work
+guard: if(condition1 && condition2)
+if condition1 is false, there is no need to check condition 2.
+default: if(condition1 || condition2)
+if condition1 is true, there is not need to compute or check condition 2.
+
+11.	What are callback functions? What about self-invoking functions?
+a callback is a function passed into another function as an argument to be executed later.
+a self-invoking function will execute automatically without being called. 
+
+12.	Use the object literal syntax to create an object with some properties
+let o = {}
+let o = {a: 'foo', b 42, c: {}}
+let a = 'foo', b = 42, c = {}
+let o = {a: a, b: b, c: c}
+
+let o = {
+  property: function (parameters) {},
+  get property() {},
+  set property(value) {}
+};
+
+13.	What is a truthy or falsy value? List the falsy values.
+A value considered true(truthy) or false(falsy) in a boolean context.
+false/0/-0/0n/""/null/undefined/NaN/document.all
+
+14.	What is the difference between == and ===? Which one allows for type coercion?
+== compares literal values, === compares values and type. === allows for type coercion
+
+15.	Explain the template literal syntax
+uses a backtick ` to be able to more easily do multi-line strings.
+
+16.	What is a Promise?
+A promise is a proxy for a value not known when the promise is created. It allows for us to associate handlers with an async action's success or failure. It allows for async methods to return values like sync methods.
+
+17.	What are arrays in JS? can you change their size?
+arrays are special objects with numbered indexes. you can change their size. array.length = #, however this can delete information or leave holes in the array
+
+18.	List some array methods and explain how they work
+The JavaScript method toString() converts an array to a string of (comma separated) array values.
+The join() method also joins all array elements into a string.
+It behaves just like toString(), but in addition you can specify the separator:
+The pop() method removes the last element from an array:
+The push() method adds a new element to an array (at the end):
+
+19.	Explain what “strict mode” does
+The strict mode in JavaScript does not allow us to use undefined variables, reserved keywords as variable or function name, duplicate properties of an object, duplicate parameters of the function, assign values to read-only properties, Modifying arguments object, and Deleting an undeletable property.
+
+20.	What will happen when I try to run this code: console.log(0.1+0.2==0.3) ?
+It will return false.
+
+ES6+
+21.	What new features did ES6 introduce?
+let/const/arrow functions and a host of new methods.
+
+22.	What is the difference between var, let, and const keywords?
+var is a globally delcared variable
+let is a scope declared variable
+const is a final variable delcared in scope.
+
+23.	Give the syntax for template literals / string interpolation
+use a backtick ` between the start of string and the end of your very last string. 
+
+24.	What’s the difference between a normal function declaration and an arrow function?
+Arrow functions allows a short syntax for writing function expressions.
+You don't need the function keyword, the return keyword, and the curly brackets.
+
+25.	What is the difference between for-of and for-in loops?
+for/of lets you loop over data structures that are iterable such as Arrays, Strings, Maps, NodeLists, and more.
+for in loops over enumerable property names of an object.
+for of (new in ES6) does use an object-specific iterator and loops over the values generated by that.
+
+26.	Explain the async/await keywords
+Extensions of promises. 
+async -An async function is a function that operates asynchronously via the event loop, returns a Promise object implicitly. async ensures that the function returns a promise.
+await - The await keyword is only valid inside async functions. await makes JavaScript wait until that promise settles and returns its result.
+
+Events and DOM
+27.	What is the DOM? How is it represented as a data structure? What object in a browser environment allows us to interact with the DOM?
+Document Object Model - The objects we interact with in the DOM is nodes. 
+
+28.	List some ways of querying the DOM for elements
+ we can select by ID, Class name, tag name, or CSS selectors.
+
+29.	How would you insert a new element into the DOM?
+The createElement() method is used to create a new element and attach it to the DOM tree.
+
+30.	What are event listeners? What are some events we can listen for? What are some different ways of setting event listeners?
+Events occur when user interaction takes place on a web page, such as when the end-user clicked a link or button, pressed a key on the keyboard, moved the mouse pointer, submits a form, etc. The browser also triggers the events, such as the page load and unload events.
+onclick, onload, onchange, onsubmit, ect..
+element.addEventListener(event, function, useCapture)
+
+31.	What is bubbling and capturing and what is the difference?
+In Event Bubbling, the event propagates from the target element to its parents, then all its ancestors that are on the way to top. Bubbling follows the Bottom to Top approach.
+In Event Capturing, the event propagates from the top element to the target element. Capturing follows the Top to Bottom approach.
+
+
+AJAX
+32.	What is AJAX? why do we use it?
+AJAX stands for Asynchronous JavaScript And XML. Ajax describes the process of exchanging data from a web server asynchronously with the help of XML, HTML, CSS, and JavaScript. It just loads the data from the server and selectively updates some webpage parts without refreshing the page.
+
+33.	Explain why it is important that AJAX is asynchronous
+Ajax uses the browser's built-in XMLHttpRequest (XHR) object to send and receive data to and from a web server asynchronously, in the background, without blocking the page or interfering with the user's experience.
+
+34.	List the steps to sending an AJAX request
+A client event occurs on a webpage. (for example, the user clicks a button)
+JavaScript creates an XMLHttpRequest object.
+The XMLHttpRequest object makes an asynchronous request to the server.
+The server process the received HttpRequest.
+The server creates a response and sends data back to the browser.
+Browser process the returned data using JavaScript.
+The page content updated by javascript.
+
+35.	What are steps to sending an AJAX request?
+(Same response as previous question, confirmed by Trainer Kevin.)
+
+36.	List the different ready states of the XmlHttpRequest object
+readyState = 0 : Not intialized
+readyState = 1 : Connection establised
+readyState = 2 : request received
+readyState = 3 : processing request
+readyState = 4 : request finished and response is ready
+
+37.	How does the fetch API differ from the XHR object?
+The Fetch API provides a fetch() method defined on the window object. This method used to send requests and returns a Promise that retrieved from the response. A Promise object represents a value that may not be available now but, will be resolved in the future. It allows us to write asynchronous code.
+
+HTTP
+1.	What does HTTP stand for?
+Hypertext Transfer Protocol
+
+2.	What are the components inside of an HTTP request? What about an HTTP response?
+Verb, URI, HTTP Version, Request Body, Request Header.
+Response Code, HTTP Version, Response Header, Response Body
+
+3.	What are the important HTTP verbs / methods and what do they do?
+Get - used to retrieve data
+Head - get but the server response does not include a body
+Post - sends data to a server
+Put - updates a target resource
+Delete - self explanatory
+Connect - starts a 2 way communication with a resource
+Options - gets communication options with a resource
+Trace - message loop back test between client and resource
+Patch - changes partial aspects of a resource.
+
+	1.	Which are idempotent?
+	Get, Head, Delete, Options, Trace, 
+	2.	Which are safe?
+	Get, Head
+
+4.	List the levels of HTTP status codes and what they mean
+100-199 Information responses
+200-299 Successful responses
+300-399 Redirects
+400-499 Client Errors
+500-599 Server Errors
+
+5.	What are some specific HTTP status codes that are commonly used?
+404 Not found, 500 internal server error, 200 OK, 202 Accepted, 418 I'm a teapot.
