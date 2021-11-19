@@ -8,7 +8,6 @@
     <fullyQualifiedTypeName name="java.time.format.DateTimeFormatter"/>
     <fullyQualifiedTypeName name="com.revature.exceptions.EmployeeNotFoundException"/>
     <fullyQualifiedTypeName name="com.revature.controllers.EntryController"/>
-    <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="java.time.LocalDate"/>
     <fullyQualifiedTypeName name="com.revature.repositories.EmployeeList"/>
     <fullyQualifiedTypeName name="com.revature.controllers.LoginController"/>
@@ -24,11 +23,9 @@
     <fullyQualifiedTypeName name="com.revature.repositories.BirdPostgres"/>
     <fullyQualifiedTypeName name="java.util.Scanner"/>
     <fullyQualifiedTypeName name="com.revature.services.BirdService"/>
-    <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
     <fullyQualifiedTypeName name="com.revature.repositories.OfferDao"/>
     <fullyQualifiedTypeName name="com.revature.repositories.OfferPostgres"/>
     <fullyQualifiedTypeName name="com.revature.services.OfferService"/>
-    <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="com.revature.models.Bird"/>
     <fullyQualifiedTypeName name="com.revature.models.Offers"/>
     <fullyQualifiedTypeName name="org.mockito.junit.jupiter.MockitoExtension"/>
@@ -40,4 +37,25 @@
     <fullyQualifiedTypeName name="org.mockito.InjectMocks"/>
     <fullyQualifiedTypeName name="org.junit.jupiter.api.Test"/>
     <fullyQualifiedTypeName name="com.revature.models.Role"/>
+    <fullyQualifiedTypeName name="org.hibernate.SessionFactory"/>
+    <fullyQualifiedTypeName name="com.revature.util.ConnectionUtil"/>
+    <fullyQualifiedTypeName name="java.sql.Connection"/>
+    <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
+    <fullyQualifiedTypeName name="java.sql.Statement"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="java.sql.ResultSet"/>
+    <fullyQualifiedTypeName name="java.sql.SQLException"/>
+    <fullyQualifiedTypeName name="io.javalin.Javalin"/>
+    <fullyQualifiedTypeName name="io.javalin.http.Context"/>
+    <fullyQualifiedTypeName name="io.javalin.http.HttpCode"/>
+    <fullyQualifiedTypeName name="java.util.Arrays"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="com.revature.daos.DaoFactory"/>
+    <fullyQualifiedTypeName name="com.revature.daos.UserDao"/>
+    <fullyQualifiedTypeName name="com.revature.models.User"/>
+    <fullyQualifiedTypeName name="java.util.stream.Collectors"/>
+    <fullyQualifiedTypeName name="com.revature.controllers.AuthController"/>
+    <fullyQualifiedTypeName name="com.revature.services.UserService"/>
+    <fullyQualifiedTypeName name="com.revature.controllers.UserController"/>
+    <fullyQualifiedTypeName name="com.revature.services.AuthService"/>
 </qualifiedTypeNameHistroy>

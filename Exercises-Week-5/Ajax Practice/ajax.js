@@ -41,15 +41,13 @@ function getData() {
 
 function populateData(response) {
   console.log(response);
-
+    let pokemonName = response.name;
+    let pokemonWeight = response.weight;
+    let pokemonHeight = response.height;
   // Using DOM manipulation, display information about pokemon to the webpage
+  let display =
+  '<h1>${response.name}<h1>
+  '
 }
 
-function displayHeight(response) {
-  const height = response.height;
-  const heightDiv = document.getElementById("height");
-  const pokemanName = pokemon.name;
-  const heading = document.createElement("h2");
-  heading.innerHTML = pokemanName;
-  heightDiv.appendChild(heading);
-}
+

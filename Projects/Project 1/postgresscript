@@ -43,3 +43,8 @@ drop table if exists ers_user_roles cascade;
 drop table if exists ERS_REIMBURSEMENT_TYPE cascade;
 drop table if exists ERS_REIMBURSEMENT_STATUS cascade;
 drop table if exists ERS_REIMBURSEMENT cascade;
+
+select * from ers_users full join ers_user_roles on user_role_id = ers_user_roles.ers_user_role_id;
+
+insert into ers_users (ers_username, ers_password, user_first_name, user_last_name, user_email, user_role_id) values ('test', 'test', 'test', 'test', 'test', '1');
+insert into ers_user_roles (ers_user_role_id, user_role) values ('1','employee');
