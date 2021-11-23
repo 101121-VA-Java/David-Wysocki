@@ -71,13 +71,13 @@ public class UserService {
 	 * @param employee object, requires name, username, password 
 	 * @return an employee with an id or null if none is created
 	 */
-//	public User addEmployee(User u) {
-//		// assigning a default manager/role
-//		u.setManager(new User(1));
-//		u.setRole(EMPLOYEE);
-//
-//		return ud.addEmployee(u);
-//	}
+	public User addEmployee(User u) {
+		// assigning a default manager/role
+		
+		u.setRole("EMPLOYEE");
+
+		return ud.addEmployee(u);
+	}
 	
 	/**
 	 * Service method to update an employee's info (ONLY username, password, and name) based on their id

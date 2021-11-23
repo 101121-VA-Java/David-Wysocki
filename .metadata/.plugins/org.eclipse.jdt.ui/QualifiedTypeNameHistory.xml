@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="java.lang.Math"/>
     <fullyQualifiedTypeName name="java.lang.String"/>
     <fullyQualifiedTypeName name="java.time.LocalDateTime"/>
     <fullyQualifiedTypeName name="java.util.Date"/>
@@ -38,18 +37,14 @@
     <fullyQualifiedTypeName name="org.junit.jupiter.api.Test"/>
     <fullyQualifiedTypeName name="com.revature.models.Role"/>
     <fullyQualifiedTypeName name="org.hibernate.SessionFactory"/>
-    <fullyQualifiedTypeName name="com.revature.util.ConnectionUtil"/>
-    <fullyQualifiedTypeName name="java.sql.Connection"/>
     <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
     <fullyQualifiedTypeName name="java.sql.Statement"/>
-    <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="java.sql.ResultSet"/>
     <fullyQualifiedTypeName name="java.sql.SQLException"/>
     <fullyQualifiedTypeName name="io.javalin.Javalin"/>
     <fullyQualifiedTypeName name="io.javalin.http.Context"/>
     <fullyQualifiedTypeName name="io.javalin.http.HttpCode"/>
     <fullyQualifiedTypeName name="java.util.Arrays"/>
-    <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="com.revature.daos.DaoFactory"/>
     <fullyQualifiedTypeName name="com.revature.daos.UserDao"/>
     <fullyQualifiedTypeName name="com.revature.models.User"/>
@@ -58,4 +53,11 @@
     <fullyQualifiedTypeName name="com.revature.services.UserService"/>
     <fullyQualifiedTypeName name="com.revature.controllers.UserController"/>
     <fullyQualifiedTypeName name="com.revature.services.AuthService"/>
+    <fullyQualifiedTypeName name="org.apache.logging.log4j.core.Logger"/>
+    <fullyQualifiedTypeName name="org.apache.logging.log4j.LogManager"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="com.revature.models.Reimbursement"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="com.revature.util.ConnectionUtil"/>
+    <fullyQualifiedTypeName name="java.sql.Connection"/>
 </qualifiedTypeNameHistroy>

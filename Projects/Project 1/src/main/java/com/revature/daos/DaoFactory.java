@@ -3,7 +3,7 @@ package com.revature.daos;
 public class DaoFactory {
 	private static DaoFactory df;
 	private UserDao ud;
-
+	private ReimbursementDao rd;
 
 	private DaoFactory() {
 	}
@@ -21,5 +21,11 @@ public class DaoFactory {
 			ud = new UserPostgres();
 		}
 		return ud;
+	}
+	public ReimbursementDao getReimbursementDao() {
+		if(rd == null) {
+			rd = new ReimbursementDao();
+		}
+		return rd;
 	}
 }

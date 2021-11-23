@@ -5,14 +5,21 @@ import static io.javalin.apibuilder.ApiBuilder.path;
 import static io.javalin.apibuilder.ApiBuilder.post;
 import static io.javalin.apibuilder.ApiBuilder.put;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.core.Logger;
+
 import com.revature.controllers.AuthController;
 import com.revature.controllers.UserController;
 
 import io.javalin.Javalin;
 
 public class Driver {
-
+	
+	private static org.apache.logging.log4j.Logger log =LogManager.getRootLogger();
+	
 	public static void main(String[] args) {
+		log.info("The Main Method has been called.");
+		log.error("The Main Method has been called.");
 		// Creating an instance of javalin and starting on port 8080
 		Javalin app = Javalin.create((config) -> {
 			config.enableCorsForAllOrigins();
@@ -39,7 +46,7 @@ public class Driver {
 			// /employees
 			path("user", () -> {
 				get(UserController::getUsers);
-//						post(UserController::registerEmployee);
+					post(UserController::registerEmployee);
 
 				// use brackets to indicate path param name
 				// /employees/{id}

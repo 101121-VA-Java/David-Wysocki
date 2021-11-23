@@ -37,6 +37,13 @@ create table if not exists ERS_REIMBURSEMENT(
 	reimb_type_id integer not null references ers_reimbursement_type(reimb_type_id)
 );
 
+insert into ers_reimbursement (reimb_amount, reimb_submitted, reimb_resolved, reimb_description, reimb_author, reimb_status_id, reimb_type_id) values ('54.99', '2021-01-01 00:00:00+12', '2021-01-01 00:00:00+13', 'First Test of Reimbursements', '3', '3', '1');
+insert into ers_reimbursement_status (reimb_status_id, reimb_status) values ('1', 'Pending');
+insert into ers_reimbursement_status (reimb_status_id, reimb_status) values ('2', 'Approved');
+insert into ers_reimbursement_status (reimb_status_id, reimb_status) values ('3', 'Denied');
+
+insert into ers_reimbursement_type (reimb_type_id, reimb_type) values ('1', 'Mileage');
+
 
 drop table if exists ERS_USERS cascade;
 drop table if exists ers_user_roles cascade;
@@ -44,7 +51,11 @@ drop table if exists ERS_REIMBURSEMENT_TYPE cascade;
 drop table if exists ERS_REIMBURSEMENT_STATUS cascade;
 drop table if exists ERS_REIMBURSEMENT cascade;
 
-select * from ers_users full join ers_user_roles on user_role_id = ers_user_roles.ers_user_role_id;
+select * from ers_users join ers_user_roles on user_role_id = ers_user_roles.ers_user_role_id;
 
 insert into ers_users (ers_username, ers_password, user_first_name, user_last_name, user_email, user_role_id) values ('test', 'test', 'test', 'test', 'test', '1');
 insert into ers_user_roles (ers_user_role_id, user_role) values ('1','employee');
+insert into ers_user_roles (ers_user_role_id, user_role) values ('2','manager');
+insert into ers_user_roles (ers_user_role_id, user_role) values ('3','admin');
+
+select * from ers_reimbursement er inner join ers_reimbursement_status ers USING(reimb_status_id) inner join ers_reimbursement_type using(reimb_type_id) order by reimb_id;

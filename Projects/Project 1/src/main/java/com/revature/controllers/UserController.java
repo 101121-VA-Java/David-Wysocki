@@ -23,15 +23,15 @@ public class UserController {
 
 		String token = ctx.header("Authorization");
 
-//		if (!as.checkPermission(token, "Manager")) {
-//			ctx.status(HttpCode.UNAUTHORIZED);
-//			return;
-//		}
+		if (!as.checkPermission(token, "Manager")) {
+			ctx.status(HttpCode.UNAUTHORIZED);
+			return;
+		}
 
 		// retrieving query param for username or null if it doesn't exist
 		String username = ctx.queryParam("username");
 		// retrieving query param for manager-id or null if it doesn't exist
-		String man_id = ctx.queryParam("manager-id");
+//		String man_id = ctx.queryParam("manager-id");
 
 		// if a query param for username has been passed in, execute retrieve by
 		// username behavior
@@ -57,38 +57,38 @@ public class UserController {
 		}
 	}
 
-//	public static void registerEmployee(Context ctx) {
-//		/*
-//		 * add employee requires an Employee Object with a name, username, password
-//		 * 
-//		 * HTTP request - version - headers - body - need to have name, username,
-//		 * password - url - localhost:8080/employees - http verb/method... - POST
-//		 */
-//
-//		/*
-//		 * Object mapper converts JSON object to Java Object mapped to the Employee
-//		 * class - fields the the JSON object that match fields in the Employee java
-//		 * class will be mapped accordingly
-//		 */
-//		User newEmp = us.addUser(ctx.bodyAsClass(User.class)); // should return new employee with id if
-//																			// successful, or null otherwise
-//
-//		if (newEmp == null) {
-//			ctx.status(HttpCode.BAD_REQUEST);
-//		} else {
-//			ctx.status(HttpCode.CREATED);
-//		}
-//
-//	}
+	public static void registerEmployee(Context ctx) {
+		/*
+		 * add employee requires an Employee Object with a name, username, password
+		 * 
+		 * HTTP request - version - headers - body - need to have name, username,
+		 * password - url - localhost:8080/employees - http verb/method... - POST
+		 */
+
+		/*
+		 * Object mapper converts JSON object to Java Object mapped to the Employee
+		 * class - fields the the JSON object that match fields in the Employee java
+		 * class will be mapped accordingly
+		 */
+		User newEmp = us.addEmployee(ctx.bodyAsClass(User.class)); // should return new employee with id if
+																			// successful, or null otherwise
+
+		if (newEmp == null) {
+			ctx.status(HttpCode.BAD_REQUEST);
+		} else {
+			ctx.status(HttpCode.CREATED);
+		}
+
+	}
 
 	public static void getEmployeeById(Context ctx) {
 
 		String token = ctx.header("Authorization");
 
-//		if (!as.checkPermission(token, "Manager")) {
-//			ctx.status(HttpCode.UNAUTHORIZED);
-//			return;
-//		}
+		if (!as.checkPermission(token, "Manager")) {
+			ctx.status(HttpCode.UNAUTHORIZED);
+			return;
+		}
 
 		// pathParam("nameOfPathParam");
 		int id = Integer.parseInt(ctx.pathParam("id"));
