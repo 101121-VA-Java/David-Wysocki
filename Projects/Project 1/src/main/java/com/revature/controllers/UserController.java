@@ -23,7 +23,7 @@ public class UserController {
 
 		String token = ctx.header("Authorization");
 
-		if (!as.checkPermission(token, "Manager")) {
+		if (!as.checkPermission(token, "manager")) {
 			ctx.status(HttpCode.UNAUTHORIZED);
 			return;
 		}
@@ -85,7 +85,7 @@ public class UserController {
 
 		String token = ctx.header("Authorization");
 
-		if (!as.checkPermission(token, "Manager")) {
+		if (!as.checkPermission(token, "manager")) {
 			ctx.status(HttpCode.UNAUTHORIZED);
 			return;
 		}
@@ -108,7 +108,7 @@ public class UserController {
 
 		String token = ctx.header("Authorization");
 
-		if (!as.checkPermission(token, "Manager")) {
+		if (!as.checkPermission(token, "manager")) {
 			ctx.status(HttpCode.UNAUTHORIZED);
 			return;
 		}

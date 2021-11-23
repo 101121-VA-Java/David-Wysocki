@@ -12,6 +12,8 @@ private User author;
 private User resolver;
 private int status;
 private int type;
+private int authorId;
+private int resolverId;
 
 /**
  * Constructor built for the purpose of submitting a User reimbursement.
@@ -46,6 +48,37 @@ public Reimbursement(int id, float amount, Timestamp submitted, Timestamp resolv
 	this.resolver = resolver;
 	this.status = status;
 	this.type = type;
+}
+
+
+public Reimbursement(int id, float amount, Timestamp submitted, Timestamp resolved, String description, int resolverId,
+		int status, int type, int authorId) {
+	super();
+	this.id = id;
+	this.amount = amount;
+	this.submitted = submitted;
+	this.resolved = resolved;
+	this.description = description;
+	this.resolverId = resolverId;
+	this.status = status;
+	this.type = type;
+	this.authorId = authorId;
+}
+
+public int getResolverId() {
+	return resolverId;
+}
+
+public void setResolverId(int resolverId) {
+	this.resolverId = resolverId;
+}
+
+public int getAuthorId() {
+	return authorId;
+}
+
+public void setAuthorId(int authorId) {
+	this.authorId = authorId;
 }
 
 public int getId() {
@@ -126,10 +159,12 @@ public int hashCode() {
 	int result = 1;
 	result = prime * result + Float.floatToIntBits(amount);
 	result = prime * result + ((author == null) ? 0 : author.hashCode());
+	result = prime * result + authorId;
 	result = prime * result + ((description == null) ? 0 : description.hashCode());
 	result = prime * result + id;
 	result = prime * result + ((resolved == null) ? 0 : resolved.hashCode());
 	result = prime * result + ((resolver == null) ? 0 : resolver.hashCode());
+	result = prime * result + resolverId;
 	result = prime * result + status;
 	result = prime * result + ((submitted == null) ? 0 : submitted.hashCode());
 	result = prime * result + type;
@@ -152,6 +187,8 @@ public boolean equals(Object obj) {
 			return false;
 	} else if (!author.equals(other.author))
 		return false;
+	if (authorId != other.authorId)
+		return false;
 	if (description == null) {
 		if (other.description != null)
 			return false;
@@ -169,6 +206,8 @@ public boolean equals(Object obj) {
 			return false;
 	} else if (!resolver.equals(other.resolver))
 		return false;
+	if (resolverId != other.resolverId)
+		return false;
 	if (status != other.status)
 		return false;
 	if (submitted == null) {
@@ -185,8 +224,10 @@ public boolean equals(Object obj) {
 public String toString() {
 	return "Reimbursement [id=" + id + ", amount=" + amount + ", submitted=" + submitted + ", resolved=" + resolved
 			+ ", description=" + description + ", author=" + author + ", resolver=" + resolver + ", status=" + status
-			+ ", type=" + type + "]";
+			+ ", type=" + type + ", authorId=" + authorId + ", resolverId=" + resolverId + "]";
 }
+
+
 
 
 

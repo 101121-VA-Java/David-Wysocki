@@ -8,15 +8,17 @@ public interface ReimbursementDao {
 
 		List<Reimbursement> getReimbursements();
 		
-		Reimbursement getReimbursementById();
+		List<Reimbursement> getReimbursementsByUser();
 		
-		List<Reimbursement> getReimbursementByType();
+		List<Reimbursement> getReimbursementById(int id);
 		
-		List<Reimbursement> getReimbursementByStatus();
+		List<Reimbursement> getReimbursementByType(int type);
 		
-		Reimbursement addReimbursement();
+		List<Reimbursement> getReimbursementByStatus(int status);
 		
-		Reimbursement changeReimbursementStatus();
+		Reimbursement addReimbursement(Reimbursement r);
 		
+		Reimbursement changeReimbursementStatus(Reimbursement r);
 		
+		Reimbursement getAReimbursement(int id);
 }
