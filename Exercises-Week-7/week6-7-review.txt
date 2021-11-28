@@ -1,0 +1,287 @@
+Hibernate
+1.	What is Hibernate? What is JPA?
+Hibernate is a Object/Relational Mapping framework, meaning the framework is designed to help facilitate the persistence of data. Persistence of data means having data outlive the application's process.
+The Java Persistence API provides mechanisms for managing persistence and object-relational mapping and functions.
+
+2.	What is the benefit of using Hibernate over JDBC?
+Hibernate mainly solves the object-relational impedance mismatch problems which arise when a relational database is connected by an application written in OOP.
+Impedence Mismatch is is a way of saying that object models and relational models sometimes do not work well together.
+
+3.	Tell me about some of the JPA annotations you have worked with? What do they do? How do you specify multiplicity relationships with JPA annotations?
+@Column used to specify the mapping between a basic entity attribute and the database table column
+@ForeignKey used to specify an associated foreign key
+@Id used to specify the entity identifier
+@JoinTable used to specify the link table between two other database tables
+------
+@ManyToMany/@ManyToOne
+
+4.	What are the interfaces of Hibernate?
+Session/SessionFactory/Configuration/Transaction/Query and criteria interface
+5.	Tell me how you set up hibernate? What files are you editing, what goes in them, etc.
+Add hibernate dependency to POM file. Create a class you would like to have persisted(ex. Employee.java) Create a new file to be the mapping file for the new class named something like (employee.hbm.xml) It would look something like this:
+<?xml version='1.0' encoding='UTF-8'?>  
+<!DOCTYPE hibernate-mapping PUBLIC  
+ "-//Hibernate/Hibernate Mapping DTD 5.3//EN"  
+ "http://hibernate.sourceforge.net/hibernate-mapping-5.3.dtd">  
+  
+ <hibernate-mapping>  
+  <class name="com.javatpoint.mypackage.Employee" table="emp1000">  
+    <id name="id">  
+     <generator class="assigned"></generator>  
+    </id>  
+            
+    <property name="firstName"></property>  
+    <property name="lastName"></property>  
+            
+  </class>  
+            
+ </hibernate-mapping>  
+
+Next step is to create the configuration file. Typical naming convention is hibernate.cfg.xml the contents will look something like this:
+<?xml version='1.0' encoding='UTF-8'?>  
+<!DOCTYPE hibernate-configuration PUBLIC  
+          "-//Hibernate/Hibernate Configuration DTD 5.3//EN"  
+          "http://hibernate.sourceforge.net/hibernate-configuration-5.3.dtd">  
+  
+<hibernate-configuration>  
+  
+    <session-factory>  
+        <property name="hbm2ddl.auto">update</property>  
+        <property name="dialect">org.hibernate.dialect.Oracle9Dialect</property>  
+        <property name="connection.url">jdbc:oracle:thin:@localhost:1521:xe</property>  
+        <property name="connection.username">system</property>  
+        <property name="connection.password">oracle</property>  
+        <property name="connection.driver_class">oracle.jdbc.driver.OracleDriver</property>  
+    <mapping resource="employee.hbm.xml"/>  
+    </session-factory>  
+  
+</hibernate-configuration>  
+
+Next, create a class that retrieves or stores the object we want persisted. It will look something like this: 
+
+public class StoreData {  
+  
+    public static void main( String[] args )  
+    {  
+         StandardServiceRegistry ssr = new StandardServiceRegistryBuilder().configure("hibernate.cfg.xml").build();  
+            Metadata meta = new MetadataSources(ssr).getMetadataBuilder().build();  
+          
+        SessionFactory factory = meta.getSessionFactoryBuilder().build();  
+        Session session = factory.openSession();  
+        Transaction t = session.beginTransaction();  
+          
+         Employee e1=new Employee();    
+            e1.setId(1);    
+            e1.setFirstName("Gaurav");    
+            e1.setLastName("Chawla");    
+         
+       session.save(e1);  
+       t.commit();  
+       System.out.println("successfully saved");    
+        factory.close();  
+        session.close();     
+    }  
+}  
+Finally, run the application!
+
+6.	What ways are available to you to map an object to database entities in Hibernate?
+Annotate in the class file, or set up a hibernate mapping file seperate from the class.
+
+7.	In the session interface, what is the difference between save and persist methods? get and load methods? Update vs merge methods?
+The persist() method will not execute an insert query if it is called outside of transaction boundaries. While, the save() method returns an identifier so that an insert query is executed immediately to get the identifier, no matter if it are inside or outside of a transaction
+get() involves database hit if an object doesn't exist in Session Cache and returns a fully initialized object which may involve several database calls while load method can return proxy in place and only initialize the object or hit the database if any method other than getId() is called on persistent or entity object.
+Update: Suppose we are dealing with any employee object in the same session then we should use update() or saveOrUpdate() method.
+
+Update: if you are sure that the session does not contains an already persistent instance with the same identifier,then use update to save the data in hibernate
+
+Merge: Suppose we are creating a session and load an employee object. Now object in session cache. If we close the session at this point and we edit state of object and tried to save using update() it will throw exception. To make object persistent we need to open another session. Now we load same object again in current session. So if we want to update present object with previous object changes we have to use merge() method. Merge method will merge changes of both states of object and will save in database.
+
+Merge: if you want to save your modifications at any time with out knowing about the state of an session, then use merge() in hibernate.
+
+8.	What are the different session methods?
+9.	What is the difference between Eager and Lazy fetching and how to setup either?
+- when fetched eagerly, the entire object is retrieved as soon as the "parent" object is retrieved
+		- ie: if a reimbursement is retrieved, the Employee associated with that reimbursement is also loaded into our application
+	- when fetched lazily, a proxy is retrieved until that object is used in the session
+		- ie: if a reimbursement is retrieved, the employee associated with that reimbursement is loaded as a proxy until used explicitely in the session
+			- proxy: a dummy object/empty object aside from its unique identifier
+fetch = FetchType.LAZY
+fetch = FetchType.EAGER
+
+10.	Under what circumstances would your program throw a LazyInitializationException?
+Hibernate throws the LazyInitializationException when it needs to initialize a lazily fetched association to another entity without an active session context.
+
+11.	What are the 4 ways to make a query using Hibernate?
+HQL Syntax/SQL Syntax/Criteria API/Named Query
+12.	What is HQL? What makes it different from SQL?
+- Hibernate Query Language
+	- more OO way to query data compared to SQL
+		- not dialect dependent
+	- paired with Query<T>
+13.	What is the Criteria API? Can you perform all DDL and DML commands with it? How do Restrictions and Projections work within this API?
+Criteria allows you to build up a criteria query object where you can apply filtration rules and logical conditions. You perform DQL operations with this API. The Criteria API provides the org.hibernate.criterion.Projections class, which can be used to get average, maximum, or minimum of the property values. The Projections class is similar to the Restrictions class, in that it provides several static factory methods for obtaining Projection instances.
+14.	What is caching? What is the difference between L1 and L2 cache?
+"Storing for quicker access" L1 stores at the session level(lasts only as long as the session does.), while L2 stores at the sessionfactory(lifetime of application) level. 
+15.	How do you enable second level caching?
+Using a 3rd party tool like ehcache.
+16.	Tell me about NamedQueries.
+Named Queries
+	- define a query to used in the model/entiry
+	- could be used in a project when the architecture is not separated by layers, would be easy to find
+
+17.	Can you write native SQL with Hibernate? Is this a good idea?
+Yes you can, however it is not considered best practice.
+
+18.	What are the configuration options for Hibernate?
+<?xml version = "1.0" encoding = "utf-8"?>
+<!DOCTYPE hibernate-configuration SYSTEM 
+"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+   <session-factory>
+   
+      <property name = "hibernate.dialect">
+         org.hibernate.dialect.MySQLDialect
+      </property>
+      
+      <property name = "hibernate.connection.driver_class">
+         com.mysql.jdbc.Driver
+      </property>
+      
+      <!-- Assume test is the database name -->
+      
+      <property name = "hibernate.connection.url">
+         jdbc:mysql://localhost/test
+      </property>
+      
+      <property name = "hibernate.connection.username">
+         root
+      </property>
+      
+      <property name = "hibernate.connection.password">
+         root123
+      </property>
+      
+      <!-- List of XML mapping files -->
+      <mapping resource = "Employee.hbm.xml"/>
+      
+   </session-factory>
+</hibernate-configuration>
+	1.	How to specify the SQL dialect?
+org.hibernate.dialect.NameofSQLHere
+	2.	What data must be specified for the SessionFactory?
+Database information and JDBC driver.
+	3.	What is hbm2ddl?
+automatic use of DDL such as CREATE, UPDATE, VALIDATE, or NONE.
+	4.	How would you configure Hibernate to print to the console all SQL statements run?
+show_sql in the hibernate configuration file.
+19.	What are the different object states in Hibernate? What methods move objects to different states?
+Transient/Persistent/Detached
+session.save()/session.close()
+20.	What is a proxy? When does the proxy resolve to the real object?
+A proxy is a subclass implemented at runtime. Hibernate creates a proxy (a subclass of the class being fetched) instead of querying the database directly, and this proxy will load the "real" object from the database whenever one of its methods is called.
+21.	What are the properties of a transaction? (ACID)
+Atomicity - Atomicity means that either all of the transactions will execute successfully or none of them will.
+Consistency - Consistency means that constraints are enforced for every committed transaction. That indicates that all Keys, Data types, Checks, and Triggers are successful and no constraint violation is triggered.
+Isolation - If two transactions are executing concurrently and working on the same data, then one transaction should not disturb the other transaction. Isolation guarantees that concurrently running transactions should not affect each other.
+Durability - Durability means that once a transaction is complete, it guarantees that all of the changes are recorded in the database. If our system is suddenly affected by a system crash or a power outage, then all unfinished committed transactions may be replayed.
+
+REST
+12.	What does the acronym REST stand for? What makes a service “RESTful”?
+Representational State Transfer - In a RESTful system, the server creates an object or resource and returns the state of that object (the values contained within the object) when requested by the client.
+19.	What protocols and data format do REST services use?
+Typically the format of a resource representation will adhere to some standard- like JSON or XML.
+A URL is a very frequently used form of resource identifier in a RESTful service. Ideally resource identifiers should change as little as possible over time (even as the state of the resource they identify changes).
+20.	What are the architectural constraints of REST? 
+Uniform Interface/Client-Server/Stateless/Cacheable/Layered System
+
+21.	Explain the levels of the Richardson Maturity Model
+Level 0 : The Swamp of POX
+The lowest level of the model describes a Web API with a single URI (typically POST over HTTP) accepting all the range of operations supported by the service. Resources in this form cannot be well-defined. Messaging is done in XML, JSON, or other text formats. These are typical RPC POX and many SOAP services.
+Level 1 : Resources
+Introduces resources and allows to make requests to individual URIs (still all typically POST) for separate actions instead of exposing one universal endpoint (API). The API resources are still generalized but it is possible to identify the scope of each one.
+
+Level One design is not RESTful, yet it is organizing the API in the direction of becoming one.
+Level 2 : HTTP verbs
+The system starts making use of HTTP Verbs. This allows to further specialize the resource and thus narrow down the functionality of each individual operation with the service. The principle separation at this level consists in splitting a given resource into two - one request for obtaining data only (GET), the other for modifying the data (POST). Further granularization is also possible. GET requests only fetch data, POST/PUT calls introduce new and update existing data, DELETE requests remove or otherwise invalidate previous actions. One drawback of providing a distributed service with more than GET and POST per resource might be growing complication of using such a system.
+Level 3 : Hypermedia controls
+The last level introduces the hypermedia representation. Also called HATEOAS (Hypermedia As The Engine of Application State), these are elements embedded in the response messages of resources which allow to establish a relation between individual data entities returned from and pass to the APIs. For instance, a GET request to a hotel reservation system might return a number of available rooms along with hypermedia links (these would be html hyperlink controls in the early days of the model) allowing to book specific rooms.
+
+This is the last level of the Richardson Maturity Model.
+22.	Explain the HATEOAS concept
+
+Hypermedia as the Engine of Application State (HATEOAS) is a constraint of the REST application architecture that distinguishes it from other network application architectures.
+
+With HATEOAS, a client interacts with a network application whose application servers provide information dynamically through hypermedia. A REST client needs little to no prior knowledge about how to interact with an application or server beyond a generic understanding of hypermedia.
+
+By contrast, clients and servers in Common Object Request Broker Architecture (CORBA) interact through a fixed interface shared through documentation or an interface description language (IDL).
+
+The restrictions imposed by HATEOAS decouple client and server. This enables server functionality to evolve independently.
+23.	What is a “resource” in a REST service?
+
+Fielding defines resources in REST as information that can be named. A service, document, image etc. might all be considered a resource. It's akin to an OOP language object.
+
+24.	What does the “uniform interface” constraint mean? Give an example of some RESTful endpoints you would create for an API. Should the URLs contain nouns, verbs, or adjectives?
+Identification of resources
+For instance: URL
+Manipulation of resources through representations
+A request yields the state of a particular resource
+Self-descriptive messages
+Response messages when requesting a resource include the representation as well as information about the representation and the resource from which it came
+Hypermedia as the engine of application state
+Think fundamentally about how we navigate the web. Picture yourself going a deep dive of wikipedia. You click one link then the next the next. This progression of clicks is similar to how a RESTful service ought to function. With hypermedia driving the ability to get one state of your resource and then the next and the next.
+-----
+/users
+/accounts
+/students
+/batches
+/associates
+-----
+Use nouns to name resources whenever possible. 
+
+
+25.	How would you implement authentication/authorization in a RESTful web service while maintaining statelessness?
+Store authentication token client side that gets invokes when client-side sends a request to the application. 
+
+Javalin
+1.	What is Javalin?
+Lightweight web framework for Kotlin and Java designed to be simple and is built ontop of Jetty.
+
+2.	What is Jetty? What is the relationship between Jetty and Javalin?
+Jetty provides a web server and servlet container, additionally providing support for HTTP/2, WebSocket, OSGi, JMX, JNDI, JAAS and many other integrations. These components are open source and are freely available for commercial use and distribution. Javalin was built ontop of Jetty.
+
+3.	What are Servlets and how are they related to Javalin?
+A servlet is a Java programming language class that is used to extend the capabilities of servers that host applications accessed by means of a request-response programming model. Although servlets can respond to any type of request, they are commonly used to extend the applications hosted by web servers. For such applications, Java Servlet technology defines HTTP-specific servlet classes. Javalin utilizes servlets to facilitate communication between HTTP requests and java application data.
+4.	What is Object Mapping? What is Jackson?
+Mapping enables you to relate objects in your application to data in a database. Jackson is a very popular and efficient java based library to serialize or map java objects to JSON and vice versa
+	- How does Javalin convert JSON data to Java objects? And the other way around?
+ctx.json(obj)
+bodyAsClass(class)
+ctx.send(obj)
+5.	How do you set up a Javalin application?
+Add the dependency in your POM and start coding.
+6.	What are Http Handlers in Javalin?
+Before/Endpoint/After
+The before-, endpoint- and after-handlers require three parts:
+
+A verb, one of: before, get, post, put, patch, delete, after (… head, options, trace, connect)
+A path, ex: /, /hello-world, /hello/{name}
+A handler implementation, ex ctx -> { ... }, MyClass implements Handler, etc
+	1. What are different ways to set them up?
+see above
+7.	What are Handler groups?
+You can group your endpoints by using the routes() and path() methods. routes() creates a temporary static instance of Javalin so you can skip the app. prefix before your handlers. This is equivalent to calling ApiBuilder.get(app, ...), which translates to app.get(...). It is not a global singleton that holds any information, so you can use this safely in multiple locations and from multiple threads.
+
+8.	What is the Context object? What is it an abstraction of?
+The Context object provides you with everything you need to handle a http-request. It contains the underlying servlet-request and servlet-response, and a bunch of getters and setters. Context object is an abstraction of HttpServletRequest and HttpServletResponse
+	- How would you handle path params?
+- path("resourceName", () -> {
+	- How would you handle query params?
+queryParam("name")
+	- How would you retrieve the request body
+bodyAsClass(clazz) 
+	- How would you map an endpoint?
+- app.get("path/endpoint", Executable<Handler>)
+	- How would you return infomation in the response body?
+result("result")
+	- How would you set a status code for a response?
+ctx.status(HttpCode.whatevercodeisappriopriate)
