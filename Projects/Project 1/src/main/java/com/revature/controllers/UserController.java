@@ -23,10 +23,10 @@ public class UserController {
 
 		String token = ctx.header("Authorization");
 
-		if (!as.checkPermission(token, "manager")) {
-			ctx.status(HttpCode.UNAUTHORIZED);
-			return;
-		}
+//		if (!as.checkPermission(token, "manager")) { //"manager"
+//			ctx.status(HttpCode.UNAUTHORIZED);
+//			return;
+//		}
 
 		// retrieving query param for username or null if it doesn't exist
 		String username = ctx.queryParam("username");

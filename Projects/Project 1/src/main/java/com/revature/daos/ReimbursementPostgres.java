@@ -16,14 +16,20 @@ public class ReimbursementPostgres implements ReimbursementDao {
 		List<Reimbursement> reimbursements = new ArrayList<>();
 		
 		try (Connection conn = ConnectionUtil.getConnectionFromEnv()) {
-			String sql = "select * from ers_reimbursement er inner join ers_reimbursement_status ers USING(reimb_status_id) inner join ers_reimbursement_type using(reimb_type_id) order by reimb_id;";
+			String sql = "select * from ers_reimbursement;"; //er inner join ers_reimbursement_status ers USING(reimb_status_id) inner join ers_reimbursement_type using(reimb_type_id) order by reimb_id;
 			Statement s = conn.createStatement();
 			ResultSet rs = s.executeQuery(sql);
 			
 			while (rs.next()) {
-				Reimbursement r = new Reimbursement(rs.getInt("reimb_id"), rs.getFloat("reimb_amount"),
-						rs.getTimestamp("reimb_submitted"),rs.getTimestamp("reimb_resolved"), rs.getString("reimb_description"), rs.getInt("reimb_resolver"),
-						rs.getInt("reimb_status"), rs.getInt("reimb_type"), rs.getInt("reimb_author"));
+				Reimbursement r = new Reimbursement(rs.getInt("reimb_id"),
+						rs.getFloat("reimb_amount"),
+						rs.getTimestamp("reimb_submitted"),
+						rs.getTimestamp("reimb_resolved"),
+						rs.getString("reimb_description"),
+						rs.getInt("reimb_resolver"),
+						rs.getInt("reimb_status_id"),
+						rs.getInt("reimb_type_id"),
+						rs.getInt("reimb_author"));
 				reimbursements.add(r);
 			}
 			

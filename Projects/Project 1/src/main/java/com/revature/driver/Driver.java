@@ -9,6 +9,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.core.Logger;
 
 import com.revature.controllers.AuthController;
+import com.revature.controllers.ReimbursementController;
 import com.revature.controllers.UserController;
 
 import io.javalin.Javalin;
@@ -64,6 +65,11 @@ public class Driver {
 			path("auth", () -> {
 				post(AuthController::login);
 			});
+			path("reimbursement", () -> {
+				get(ReimbursementController::get);
+				post(ReimbursementController::add);
+			}
+			);
 		});
 	}
 

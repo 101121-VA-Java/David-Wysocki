@@ -20,26 +20,10 @@ public class ReimbursementController {
 	    }
 
 		public static void get(Context ctx) {
-			String token = ctx.header("Authorization");				
-			if(as.checkPermission(token, "manager")) {
-				List<Reimbursement> rlist = null;
-				if (ctx.queryParam("author-id") == null) rlist = rs.getReimbursements();
-				else {
-					int authorId = Integer.parseInt(ctx.queryParam("author-id"));
-					if(authorId > 0) rlist = rs.getReimbursementById(authorId);
-				}
-				if(rlist == null) ctx.status(HttpCode.BAD_REQUEST);
-				else ctx.json(rlist); ctx.status(HttpCode.CREATED);
-			} else if(as.checkPermission(token, "employee")) {
-				String[] info = token.split(":"); 
-				int empId = Integer.parseInt(info[0]);
-				List<Reimbursement> rlist = rs.getReimbursementById(empId);
-				if(rlist == null) ctx.status(HttpCode.BAD_REQUEST);
-				else ctx.json(rlist); ctx.status(HttpCode.CREATED);
-			} else {
-				ctx.status(HttpCode.UNAUTHORIZED);
-				return;
-			}
+			List<Reimbursement> r = rs.getReimbursements();
+			System.out.println(r);
+			ctx.json(r);
+			ctx.status(HttpCode.OK);
 		}
 
 		public static void update(Context ctx) {

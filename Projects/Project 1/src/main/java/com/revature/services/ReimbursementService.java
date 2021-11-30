@@ -1,6 +1,7 @@
 package com.revature.services;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import com.revature.daos.DaoFactory;
 import com.revature.daos.ReimbursementDao;
@@ -10,16 +11,20 @@ public class ReimbursementService {
 	
 		private ReimbursementDao rd;
 
-//		public ReimbursementService() {
-//			rd = DaoFactory.getDAOFactory().getReimbursementDao();
-//		}
+		public ReimbursementService() {
+			rd = DaoFactory.getDAOFactory().getReimbursementDao();
+		}
 	    
 	    public Reimbursement add(Reimbursement r) {
 			return rd.addReimbursement(r);
 	    }
 
 		public List<Reimbursement> getReimbursements(){
-			return rd.getReimbursements();
+			List<Reimbursement> rlist = rd.getReimbursements().stream().map(u -> {
+
+				return u;
+			}).collect(Collectors.toList());
+			return rlist;
 		}
 
 	    public List<Reimbursement> getReimbursementById(int id) {
