@@ -35,56 +35,47 @@
         </ul>
 
     </nav>
-   
     <main class="container-fluid mx-auto " style="padding: 0 7.5em;">
-        <div class="container align-content-center" id="AddReimbursement">
+        
+        <div class="container align-content-center" id="empbox">
             <br>
             <br>
             <br>
             <br>
             <form>
                 <div id="bottomBorder" class="form-row justify-content-center">
-                    <h1 class="display-4">Add Reimbursement</h1>
+                    <h1 class="display-4"><b>Welcome Employee!</b></h1></div>
+                    <br>
+                    
+                    <div id="optionsMessage" class="form-row justify-content-center"><h3 class="display-5"><br>Please select one of the available options</h3></div>
+                </form>
                 </div>
                 <hr>
+                <div id="viewAll" class="form-row justify-content-center"><button type="button" class="btn btn-primary btn-lg" onclick='addRWindow()'>Add Reimbursement Request</button>
+                    <br></div>
                 <br>
-                <div class="form-row justify-content-center">
-                    <label>Amount:</label>
-                </div>
-                <div class="form-row justify-content-center">
-                    <input class="inputstyle" type="text" name="amount" id="amount">
-                </div>
+                <div class="form-row justify-content-center"><button type="button" class="btn btn-primary btn-lg" onclick='viewPending(1)'>View Your Pending Reimbursement Requests</button></div>
                 <br>
-                <div class="form-row justify-content-center">
-                    <label>Description</label>
-                </div>
-                <div class="form-row justify-content-center">
-                    <input class="inputstyle" type="text" name="description" id="description">
-                </div>
+                <div id="empApprove" class="form-row justify-content-center"><button type="button" class="btn btn-primary btn-lg" onclick='viewPending(2)'>View Your Approved Reimbursement Requests</button></div>
                 <br>
-                <div class="form-row justify-content-center">
-                    <label>Type</label>
-                </div>
-                <div class="form-row justify-content-center">
-                    <input class="inputstyle" type="text" name="type" id="type">
-                </div>
+                <div id="empDeny" class="form-row justify-content-center"><button type="button" class="btn btn-primary btn-lg" onclick='viewPending(3)'>View Your Rejected Reimbursement Requests</button></div>
                 <br>
+                <div id="empProfile" class="form-row justify-content-center"><button type="button" class="btn btn-primary btn-lg" onclick='viewProfile()'>View Your Profile Information</button></div>
                 <br>
+                <div id="empUpdate" class="form-row justify-content-center"><button type="button" class="btn btn-primary btn-lg" onclick='updateWindow()'>Update Your Information</button></div>
+                
+
+                
+                
                 <br>
-                <br>
-                <div class="form-row justify-content-center">
-                    <input class="btn btn-outline-secondary" value="Submit Request" id="addsubmitButton" onclick='addReimbursement()'>
-                </div>
                 <br>
                 <br>
                 <div class="form-row justify-content-center">
                     <div style="color:red;" id="error-div"></div>
                 </div>
-                
-                    
-                  
             </form>
     </main>
+
     <footer class="bg-light text-center fixed-bottom">
         <div class="text-center p-3">
             Wysocki David Project 1

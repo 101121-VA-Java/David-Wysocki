@@ -192,3 +192,190 @@ function getByStatus(id) {
       .catch((err) => console.log(err.message))
   );
 }
+function addRWindow() {
+  document.getElementById(
+    "empbox"
+  ).innerHTML = `<main class="container-fluid mx-auto " style="padding: 0 7.5em;">
+  <div class="container align-content-center" id="AddReimbursement">
+      <br>
+      <br>
+      <br>
+      <br>
+      <form>
+          <div id="bottomBorder" class="form-row justify-content-center">
+              <h1 class="display-4">Add Reimbursement</h1>
+          </div>
+          <hr>
+          <br>
+          <div class="form-row justify-content-center">
+              <label>Amount:</label>
+          </div>
+          <div class="form-row justify-content-center">
+              <input class="inputstyle" type="text" name="amount" id="amount">
+          </div>
+          <br>
+          <div class="form-row justify-content-center">
+              <label>Description</label>
+          </div>
+          <div class="form-row justify-content-center">
+              <input class="inputstyle" type="text" name="description" id="description">
+          </div>
+          <br>
+          <div class="form-row justify-content-center">
+              <label>Type</label>
+          </div>
+          <div class="form-row justify-content-center">
+              <input class="inputstyle" type="text" name="type" id="type">
+          </div>
+          <br>
+          <br>
+          <br>
+          <br>
+          <div class="form-row justify-content-center">
+              <input class="btn btn-outline-secondary" value="Submit Request" id="addsubmitButton" onclick='addReimbursement()'>
+          </div>
+          <br>
+          <br>
+          <div class="form-row justify-content-center">
+              <div style="color:red;" id="error-div"></div>
+          </div>`;
+}
+function viewPending(statusId) {
+  console.log("In the function.");
+  let seshId = sessionStorage.token.split(":")[0];
+  fetch(`http://localhost:8080/user/${seshId}/status/${statusId}`, {
+    method: "GET",
+    headers: {
+      Authorization: token,
+    },
+  }).then((res) =>
+    res
+      .json()
+      .then((res) => {
+        console.log(res);
+        let result = "";
+        for (let index = 0; index < res.length; index++) {
+          result += `<br><div>Description: ${res[index].description}</div>`;
+          result += `<div>Amount: ${res[index].amount}</div>`;
+          result += `<div>Resolved By: ${res[index].resolverId}</div>`;
+          result += `<div>Resolved At: ${res[index].resolved}</div>`;
+          result += `<div>Submitted On: ${res[index].submitted}</div>`;
+          result += `<div>Reimbursement ID: ${res[index].id}</div>`;
+          result += `<div>Reimbursement Type: ${res[index].type}</div>`;
+        }
+        document.getElementById("empbox").innerHTML = result;
+      })
+      .catch((err) => console.log(err.message))
+  );
+}
+function viewProfile() {
+  console.log("In the function.");
+  let seshId = sessionStorage.token.split(":")[0];
+  fetch(`http://localhost:8080/user/${seshId}`, {
+    method: "GET",
+    headers: {
+      Authorization: token,
+    },
+  }).then((res) =>
+    res
+      .json()
+      .then((res) => {
+        console.log(res);
+        let result = "";
+        // for (let index = 0; index < res.length; index++) {
+        result += `<br><div>User ID: ${res.userid}</div>`;
+        result += `<div>First Name: ${res.firstname}</div>`;
+        result += `<div>Last Name: ${res.lastname}</div>`;
+        result += `<div>Username: ${res.username}</div>`;
+        result += `<div>Password: For your security, the password is not shared.</div>`;
+        result += `<div>Email: ${res.email}</div>`;
+        result += `<div>Role: ${res.role}</div>`;
+        // }
+        document.getElementById("empbox").innerHTML = result;
+      })
+      .catch((err) => console.log(err.message))
+  );
+}
+function updateWindow() {
+  document.getElementById(
+    "empbox"
+  ).innerHTML = `<main class="container-fluid mx-auto " style="padding: 0 7.5em;">
+  <div class="container align-content-center" id="updateProfile">
+      <br>
+      <br>
+      <br>
+      <br>
+      <form>
+          <div id="bottomBorder" class="form-row justify-content-center">
+              <h1 class="display-4">Update Profile Information</h1>
+          </div>
+          <hr>
+          <br>
+          <div class="form-row justify-content-center">
+              <label>First Name</label>
+          </div>
+          <div class="form-row justify-content-center">
+              <input class="inputstyle" type="text" name="firstname" id="firstname">
+          </div>
+          <br>
+          <div class="form-row justify-content-center">
+              <label>Last Name</label>
+          </div>
+          <div class="form-row justify-content-center">
+              <input class="inputstyle" type="text" name="lastname" id="lastname">
+          </div>
+          <br>
+          <div class="form-row justify-content-center">
+              <label>User Name</label>
+          </div>
+          <div class="form-row justify-content-center">
+              <input class="inputstyle" type="text" name="username" id="username">
+          </div>
+          <br>
+          <div class="form-row justify-content-center">
+              <label>Password</label>
+          </div>
+          <div class="form-row justify-content-center">
+              <input class="inputstyle" type="text" name="password" id="password">
+          </div>
+          <br>
+          <div class="form-row justify-content-center">
+              <label>Email</label>
+          </div>
+          <div class="form-row justify-content-center">
+              <input class="inputstyle" type="text" name="email" id="email">
+          </div>
+          <br>
+          <br>
+          <br>
+          <br>
+          <div class="form-row justify-content-center">
+              <input class="btn btn-outline-secondary" value="Submit Updated Profile" id="submitUpdateProfile" onclick='updateEmployeeProfile(sessionStorage.token.split(":")[0])'>
+          </div>
+          <br>
+          <br>
+          <div class="form-row justify-content-center">
+              <div style="color:red;" id="error-div"></div>
+          </div>`;
+}
+function updateEmployeeProfile(userid) {
+  let firstname = document.getElementById("firstname").value;
+  let lastname = document.getElementById("lastname").value;
+  let username = document.getElementById("username").value;
+  let password = document.getElementById("password").value;
+  let email = document.getElementById("email").value;
+
+  let xhr = new XMLHttpRequest();
+  let payload = { userid, firstname, lastname, username, password, email };
+  xhr.open("PUT", `${api}/user/${userid}`);
+
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState === 4 && xhr.status === 200) {
+      console.log("Hey! You're doing the thing!");
+    } else if (xhr.readyState === 4) {
+      console.log("You've got some work to do chibberoo");
+    }
+  };
+  xhr.setRequestHeader("Authorization", sessionStorage.token);
+  xhr.send(JSON.stringify(payload));
+}

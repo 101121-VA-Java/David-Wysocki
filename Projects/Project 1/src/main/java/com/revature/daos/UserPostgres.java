@@ -128,15 +128,14 @@ public class UserPostgres implements UserDao {
 		
 	boolean result = false;
 		try (Connection con = ConnectionUtil.getConnectionFromEnv()){
-			String sql = "update ers_users set ers_username = ?, ers_password = ?, user_email = ?, user_first_name = ?, user_last_name = ?, user_role_id = ? WHERE ers_users_id = ?;";
+			String sql = "update ers_users set ers_username = ?, ers_password = ?, user_email = ?, user_first_name = ?, user_last_name = ? WHERE ers_users_id = ?;";
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setString(1, e.getUsername());
             ps.setString(2, e.getPassword());
             ps.setString(3, e.getEmail());
             ps.setString(4, e.getFirstname());
             ps.setString(5, e.getLastname());
-            ps.setString(6, e.getRole());
-			ps.setInt(7, e.getUserid());
+			ps.setInt(6, e.getUserid());
 			 ps.executeUpdate();
 			 result = true;
 			

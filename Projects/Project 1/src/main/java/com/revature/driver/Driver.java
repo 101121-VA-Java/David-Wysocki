@@ -49,10 +49,13 @@ public class Driver {
 				path("{id}", () -> {
 					get(UserController::getEmployeeById);
 					put(UserController::updateEmployeeInfo);
-
+					path("status", () -> {
+					path("{status}", () -> {
+						get(ReimbursementController::empReimbursement);
+					});
 				});
 			});
-
+			});
 			path("auth", () -> {
 				post(AuthController::login);
 			});

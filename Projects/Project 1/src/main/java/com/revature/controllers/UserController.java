@@ -85,10 +85,10 @@ public class UserController {
 
 		String token = ctx.header("Authorization");
 
-		if (!as.checkPermission(token, "manager")) {
-			ctx.status(HttpCode.UNAUTHORIZED);
-			return;
-		}
+//		if (!as.checkPermission(token, "manager")) {
+//			ctx.status(HttpCode.UNAUTHORIZED);
+//			return;
+//		}
 
 		// pathParam("nameOfPathParam");
 		int id = Integer.parseInt(ctx.pathParam("id"));
@@ -107,14 +107,13 @@ public class UserController {
 	public static void updateEmployeeInfo(Context ctx) {
 
 		String token = ctx.header("Authorization");
-
-		if (!as.checkPermission(token, "manager")) {
-			ctx.status(HttpCode.UNAUTHORIZED);
-			return;
-		}
+//
+//		if (!as.checkPermission(token, "manager")) {
+//			ctx.status(HttpCode.UNAUTHORIZED);
+//			return;
+//		}
 
 		int id = Integer.parseInt(ctx.pathParam("id"));
-
 		User u = ctx.bodyAsClass(User.class);
 
 		u.setUserid(id);

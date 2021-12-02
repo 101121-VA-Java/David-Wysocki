@@ -218,5 +218,35 @@ List<Reimbursement> rlist = new ArrayList<>();
 		return r;
 		
 	}
-
+	@Override
+	public List<Reimbursement> getEmpReimByStatus(int id,int status) {
+		List<Reimbursement> rlist = new ArrayList<>();
+		
+		try (Connection conn = ConnectionUtil.getConnectionFromEnv()) {
+			String sql = "select * from ers_reimbursement where reimb_status_id = ? AND reimb_author = ?;"; //er inner join ers_reimbursement_status ers USING(reimb_status_id) inner join ers_reimbursement_type using(reimb_type_id) order by reimb_id;
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setInt(1, status);
+			ps.setInt(2, id);
+			ResultSet rs = ps.executeQuery();
+			
+			while (rs.next()) {
+				Reimbursement r = new Reimbursement(rs.getInt("reimb_id"),
+						rs.getFloat("reimb_amount"),
+						rs.getTimestamp("reimb_submitted"),
+						rs.getTimestamp("reimb_resolved"),
+						rs.getString("reimb_description"),
+						rs.getInt("reimb_resolver"),
+						rs.getInt("reimb_status_id"),
+						rs.getInt("reimb_type_id"),
+						rs.getInt("reimb_author"));
+				rlist.add(r);
+			}
+			
+		} catch (SQLException e) {
+			
+			e.printStackTrace();
+		}
+		return rlist;
+		
+	}
 }

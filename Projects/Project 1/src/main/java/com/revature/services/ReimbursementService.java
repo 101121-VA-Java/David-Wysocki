@@ -41,4 +41,7 @@ public class ReimbursementService {
 		public Reimbursement getAReimbursement(int id) {
 			return rd.getAReimbursement(id);
 		}
+		public List<Reimbursement> getEmpReimByStatus(int id, int status){
+			return rd.getEmpReimByStatus(id, status);
+		}
 }

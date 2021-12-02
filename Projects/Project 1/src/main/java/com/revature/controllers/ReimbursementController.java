@@ -68,4 +68,15 @@ public class ReimbursementController {
 			if (rs.update(r) != false) ctx.status(HttpCode.OK);
 			else ctx.status(400);
 	    }
+public static void empReimbursement(Context ctx) {
+			
+			System.out.println("We're here in controller");
+			int id = Integer.parseInt(ctx.pathParam("id"));
+			int status = Integer.parseInt(ctx.pathParam("status"));
+			System.out.println("???");
+			List<Reimbursement> r = rs.getEmpReimByStatus(id, status);
+			System.out.println(r);
+			ctx.json(r);
+			ctx.status(HttpCode.OK);
+		}
 }
