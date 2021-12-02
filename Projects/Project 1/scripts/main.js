@@ -46,15 +46,44 @@ function getAllReimbursements() {
         console.log(res);
         let result = "";
         for (let index = 0; index < res.length; index++) {
+          let date1 = new Date(res[index].submitted);
+          let fulldate =
+            date1.getMonth() +
+            1 +
+            "/" +
+            date1.getDay() +
+            "/" +
+            date1.getFullYear() +
+            " " +
+            date1.getHours() +
+            ":" +
+            date1.getMinutes();
+          let date2 = new Date(res[index].resolved);
+          let fulldate2 =
+            date2.getMonth() +
+            1 +
+            "/" +
+            date2.getDay() +
+            "/" +
+            date2.getFullYear() +
+            " " +
+            date2.getHours() +
+            ":" +
+            date2.getMinutes();
+          result += `
+            <div>
+              <b>Request</b>
+            </div>
+          `;
           result += `<br><div>Description: ${res[index].description}</div>`;
           result += `<div>Amount: ${res[index].amount}</div>`;
           result += `<div>Resolved By: ${res[index].resolverId}</div>`;
-          result += `<div>Resolved At: ${res[index].resolved}</div>`;
+          result += `<div>Resolved At: ${fulldate2}</div>`;
           result += `<div>Submitted By: ${res[index].authorId}</div>`;
-          result += `<div>Submitted On: ${res[index].submitted}</div>`;
+          result += `<div>Submitted On: ${fulldate}</div>`;
           result += `<div>Reimbursement ID: ${res[index].id}</div>`;
           result += `<div>Reimbursement Type: ${res[index].type}</div>`;
-          result += `<div>
+          result += `<br><div>
             <button
               type="button"
               class="btn btn-success"
@@ -63,8 +92,8 @@ function getAllReimbursements() {
               Approve
             </button>
             
-          </div>`;
-          result += `<div><button type="button" class="btn btn-danger" onclick="changeReimbursement(${res[index].id}, 3)">Deny</button></div>`;
+          </div><br>`;
+          result += `<div><button type="button" class="btn btn-danger" onclick="changeReimbursement(${res[index].id}, 3)">Deny</button></div><br>`;
         }
         document.getElementById("manbox").innerHTML = result;
       })
@@ -150,14 +179,39 @@ function viewByEmp() {
         console.log(res);
         let result = "";
         for (let index = 0; index < res.length; index++) {
+          let date1 = new Date(res[index].submitted);
+          let fulldate =
+            date1.getMonth() +
+            1 +
+            "/" +
+            date1.getDay() +
+            "/" +
+            date1.getFullYear() +
+            " " +
+            date1.getHours() +
+            ":" +
+            date1.getMinutes();
+          let date2 = new Date(res[index].resolved);
+          let fulldate2 =
+            date2.getMonth() +
+            1 +
+            "/" +
+            date2.getDay() +
+            "/" +
+            date2.getFullYear() +
+            " " +
+            date2.getHours() +
+            ":" +
+            date2.getMinutes();
           result += `<br><div>User ID: ${res[index].authorId}</div>`;
           result += `<div>Amount: ${res[index].amount}</div>`;
+          result += `<div>Description: ${res[index].description}</div>`;
           result += `<div>Reimbursement ID: ${res[index].id}</div>`;
           result += `<div>Reimbursement Type: ${res[index].type}</div>`;
           result += `<div>Submitted By: ${res[index].authorId}</div>`;
-          result += `<div>Submitted On: ${res[index].submitted}</div>`;
+          result += `<div>Submitted On: ${fulldate}</div>`;
           result += `<div>Resolved By: ${res[index].resolverId}</div>`;
-          result += `<div>Resolved At: ${res[index].resolved}</div>`;
+          result += `<div>Resolved At: ${fulldate2}</div>`;
         }
         document.getElementById("manbox").innerHTML = result;
       })
@@ -178,12 +232,36 @@ function getByStatus(id) {
         console.log(res);
         let result = "";
         for (let index = 0; index < res.length; index++) {
+          let date1 = new Date(res[index].submitted);
+          let fulldate =
+            date1.getMonth() +
+            1 +
+            "/" +
+            date1.getDay() +
+            "/" +
+            date1.getFullYear() +
+            " " +
+            date1.getHours() +
+            ":" +
+            date1.getMinutes();
+          let date2 = new Date(res[index].resolved);
+          let fulldate2 =
+            date2.getMonth() +
+            1 +
+            "/" +
+            date2.getDay() +
+            "/" +
+            date2.getFullYear() +
+            " " +
+            date2.getHours() +
+            ":" +
+            date2.getMinutes();
           result += `<br><div>Description: ${res[index].description}</div>`;
           result += `<div>Amount: ${res[index].amount}</div>`;
           result += `<div>Resolved By: ${res[index].resolverId}</div>`;
-          result += `<div>Resolved At: ${res[index].resolved}</div>`;
+          result += `<div>Resolved At: ${fulldate2}</div>`;
           result += `<div>Submitted By: ${res[index].authorId}</div>`;
-          result += `<div>Submitted On: ${res[index].submitted}</div>`;
+          result += `<div>Submitted On: ${fulldate}</div>`;
           result += `<div>Reimbursement ID: ${res[index].id}</div>`;
           result += `<div>Reimbursement Type: ${res[index].type}</div>`;
         }
@@ -221,12 +299,18 @@ function addRWindow() {
               <input class="inputstyle" type="text" name="description" id="description">
           </div>
           <br>
+          <div class="form-row justify-content-center"> Type </div>
+          
           <div class="form-row justify-content-center">
-              <label>Type</label>
-          </div>
-          <div class="form-row justify-content-center">
-              <input class="inputstyle" type="text" name="type" id="type">
-          </div>
+              <label></label>
+              <select class="form-select" aria-label="Default select example" id="type">
+              <option selected>Open this select menu</option>
+              <option value="1">Mileage</option>
+              <option value="2">Lodging</option>
+              <option value="3">Food</option>
+              <option value ="4">Other</option>
+            </select>
+            </div>
           <br>
           <br>
           <br>
@@ -255,11 +339,40 @@ function viewPending(statusId) {
         console.log(res);
         let result = "";
         for (let index = 0; index < res.length; index++) {
+          let date1 = new Date(res[index].submitted);
+          let fulldate =
+            date1.getMonth() +
+            1 +
+            "/" +
+            date1.getDay() +
+            "/" +
+            date1.getFullYear() +
+            " " +
+            date1.getHours() +
+            ":" +
+            date1.getMinutes();
+          let date2 = new Date(res[index].resolved);
+          let fulldate2 =
+            date2.getMonth() +
+            1 +
+            "/" +
+            date2.getDay() +
+            "/" +
+            date2.getFullYear() +
+            " " +
+            date2.getHours() +
+            ":" +
+            date2.getMinutes();
+          result += `
+            <div>
+              <b>Pending Request</b>
+            </div>
+          `;
           result += `<br><div>Description: ${res[index].description}</div>`;
           result += `<div>Amount: ${res[index].amount}</div>`;
           result += `<div>Resolved By: ${res[index].resolverId}</div>`;
-          result += `<div>Resolved At: ${res[index].resolved}</div>`;
-          result += `<div>Submitted On: ${res[index].submitted}</div>`;
+          result += `<div>Resolved At: ${fulldate2}</div>`;
+          result += `<div>Submitted On: ${fulldate}</div>`;
           result += `<div>Reimbursement ID: ${res[index].id}</div>`;
           result += `<div>Reimbursement Type: ${res[index].type}</div>`;
         }

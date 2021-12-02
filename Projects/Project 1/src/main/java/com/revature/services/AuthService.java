@@ -2,13 +2,16 @@ package com.revature.services;
 
 import java.util.Arrays;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import com.revature.daos.DaoFactory;
 import com.revature.daos.UserDao;
 import com.revature.models.User;
 
 public class AuthService {
 	private UserDao ud;
-
+	private static Logger log = LogManager.getRootLogger();
 	// Retrieving an instance of EmployeeDao
 	public AuthService() {
 		ud = DaoFactory.getDAOFactory().getUserDao();
@@ -35,7 +38,7 @@ public class AuthService {
 			 */
 			token = principal.getUserid() + ":" + principal.getRole();
 		}
-
+		log.trace("A login has occurred");
 		return token;
 	}
 	
