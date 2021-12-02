@@ -60,3 +60,5 @@ insert into ers_user_roles (ers_user_role_id, user_role) values ('2','manager');
 insert into ers_user_roles (ers_user_role_id, user_role) values ('3','admin');
 
 select * from ers_reimbursement er inner join ers_reimbursement_status ers USING(reimb_status_id) inner join ers_reimbursement_type using(reimb_type_id) order by reimb_id;
+
+select * from ers_reimbursement where reimb_id = 5;

@@ -36,6 +36,13 @@ public Reimbursement(int id, float amount, Timestamp submitted, String descripti
 	this.type = type;
 }
 
+
+public Reimbursement() {
+	super();
+	// TODO Auto-generated constructor stub
+}
+
+
 public Reimbursement(int id, float amount, Timestamp submitted, Timestamp resolved, String description, User author,
 		User resolver, int status, int type) {
 	super();
@@ -61,6 +68,16 @@ public Reimbursement(int id, float amount, Timestamp submitted, Timestamp resolv
 	this.description = description;
 	this.resolverId = resolverId;
 	this.status = status;
+	this.type = type;
+	this.authorId = authorId;
+}
+
+
+public Reimbursement(float amount, Timestamp submitted, String description, int type, int authorId) {
+	super();
+	this.amount = amount;
+	this.submitted = submitted;
+	this.description = description;
 	this.type = type;
 	this.authorId = authorId;
 }

@@ -15,20 +15,15 @@ import com.revature.controllers.UserController;
 import io.javalin.Javalin;
 
 public class Driver {
-	
-	private static org.apache.logging.log4j.Logger log =LogManager.getRootLogger();
-	
+
+	private static org.apache.logging.log4j.Logger log = LogManager.getRootLogger();
+
 	public static void main(String[] args) {
 		log.info("The Main Method has been called.");
 		log.error("The Main Method has been called.");
 		// Creating an instance of javalin and starting on port 8080
 		Javalin app = Javalin.create((config) -> {
 			config.enableCorsForAllOrigins();
-			/*
-			 * Enables CORS: Cross Origin Resource Sharing - protective mechanism built into
-			 * most browsers - restricts resources to be only be allowed by webpages on the
-			 * same domain
-			 */
 			config.defaultContentType = "application/json";
 		});
 		app.start();
@@ -47,7 +42,7 @@ public class Driver {
 			// /employees
 			path("user", () -> {
 				get(UserController::getUsers);
-					post(UserController::registerEmployee);
+				post(UserController::registerEmployee);
 
 				// use brackets to indicate path param name
 				// /employees/{id}
@@ -55,22 +50,35 @@ public class Driver {
 					get(UserController::getEmployeeById);
 					put(UserController::updateEmployeeInfo);
 
-					// /employees/{id}/admin
-//							path("admin", () -> {
-//								put(EmployeeController::updateEmployeeInfoAdmin);
-//							});
 				});
 			});
-			// /auth
+
 			path("auth", () -> {
 				post(AuthController::login);
 			});
 			path("reimbursement", () -> {
 				get(ReimbursementController::get);
 				post(ReimbursementController::add);
-			}
-			);
+				path("{id}", () -> {
+
+					put(ReimbursementController::update);
+
+				});
+				path("author", () -> {
+					path("{id}", () -> {
+						get(ReimbursementController::empGet);
+					});
+
+				});
+				path("status", () -> {
+					path("{id}", () -> {
+						get(ReimbursementController::statusGet);
+
+					});
+				});
+			});
 		});
+
 	}
 
 }

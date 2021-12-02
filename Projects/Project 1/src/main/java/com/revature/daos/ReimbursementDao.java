@@ -8,7 +8,7 @@ public interface ReimbursementDao {
 
 		List<Reimbursement> getReimbursements();
 		
-		List<Reimbursement> getReimbursementsByUser();
+
 		
 		List<Reimbursement> getReimbursementById(int id);
 		
@@ -18,7 +18,7 @@ public interface ReimbursementDao {
 		
 		Reimbursement addReimbursement(Reimbursement r);
 		
-		Reimbursement changeReimbursementStatus(Reimbursement r);
+		boolean changeReimbursementStatus(Reimbursement r);
 		
 		Reimbursement getAReimbursement(int id);
 }

@@ -19,13 +19,13 @@
         <a class="navbar-brand" href="#"><img src="../images/revature-logo.png" style="height: 2.5em;"></a>
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-                <a class="nav-link" href="#">Employees</a>
+                <a class="nav-link" href="../views/manager.html">Main Menu</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Info</a>
+                <a class="nav-link" href="#">Company Info</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#" onclick='getAllReimbursements()'>Reimbursements</a>
+                <a class="nav-link" href="#">Reimbursements</a>
             </li>
         </ul>
         <ul class="navbar-nav navbar-right">
@@ -36,37 +36,37 @@
 
     </nav>
     <main class="container-fluid mx-auto " style="padding: 0 7.5em;">
-        <p>Manager Dashboard</p>
-        <div class="container align-content-center" id="testman">
+        
+        <div class="container align-content-center" id="manbox">
             <br>
             <br>
             <br>
             <br>
             <form>
                 <div id="bottomBorder" class="form-row justify-content-center">
-                    <h1 class="display-4">Login</h1>
+                    <h1 class="display-4"><b>Welcome Manager!</b></h1></div>
+                    <br>
+                    
+                    <div id="optionsMessage" class="form-row justify-content-center"><h3 class="display-5"><br>Please select one of the available options</h3></div>
+                </form>
                 </div>
                 <hr>
+                <div id="viewAll" class="form-row justify-content-center"><button type="button" class="btn btn-primary btn-lg" onclick='getAllReimbursements()'>View All Reimbursements</button>
+                    <br></div>
                 <br>
-                <div class="form-row justify-content-center">
-                    <label>Username:</label>
-                </div>
-                <div class="form-row justify-content-center">
-                    <input class="inputstyle" type="text" name="username" id="username">
-                </div>
+                <div class="form-row justify-content-center"><button type="button" class="btn btn-primary btn-lg" onclick='getAllEmps()'>View All Employees</button></div>
                 <br>
-                <div class="form-row justify-content-center">
-                    <label>Password:</label>
-                </div>
-                <div class="form-row justify-content-center">
-                    <input class="inputstyle" type="password" name="password" id="password">
-                </div>
+                <div id="specificInfo" class="form-row justify-content-center"><button type="button" class="btn btn-primary btn-lg" onclick='getByStatus(1)'>View Requests By Pending Status</button></div>
                 <br>
+                <div id="specificapprove" class="form-row justify-content-center"><button type="button" class="btn btn-primary btn-lg" onclick='getByStatus(2)'>View Requests By Approved Status</button></div>
                 <br>
+                <div id="specificdeny" class="form-row justify-content-center"><button type="button" class="btn btn-primary btn-lg" onclick='getByStatus(3)'>View Requests By Rejected Status</button></div>
                 <br>
-                <div class="form-row justify-content-center">
-                    <input class="btn btn-outline-secondary" value="Login" id="submitButton">
-                </div>
+                <div class="form-row justify-content-center"><button type="button" id="reimbursementById" class="btn btn-primary btn-lg" onclick='inputForm()'>View Requests by Employee</button></div>
+
+                
+                
+                <br>
                 <br>
                 <br>
                 <div class="form-row justify-content-center">
@@ -79,7 +79,7 @@
             Wysocki David Project 1
         </div>
     </footer>
-    <script src="../scripts/login.js"></script>
+
     <script src="../scripts/main.js"></script>
 </body>
 

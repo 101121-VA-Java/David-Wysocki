@@ -24,51 +24,65 @@
             <li class="nav-item">
                 <a class="nav-link" href="#">Info</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Reimbursements</a>
+            </li>
         </ul>
         <ul class="navbar-nav navbar-right">
             <li class="nav-item">
-                <a class="nav-link" href="#">Logout</a>
+                <a class="nav-link" href="#" id="logout-button">Logout</a>
             </li>
         </ul>
 
     </nav>
+   
     <main class="container-fluid mx-auto " style="padding: 0 7.5em;">
-        <p></p>
-        <div class="container align-content-center" id="testman">
+        <div class="container align-content-center" id="AddReimbursement">
             <br>
             <br>
             <br>
             <br>
             <form>
                 <div id="bottomBorder" class="form-row justify-content-center">
-                    <h1 class="display-4">Login</h1>
+                    <h1 class="display-4">Add Reimbursement</h1>
                 </div>
                 <hr>
                 <br>
                 <div class="form-row justify-content-center">
-                    <label>Username:</label>
+                    <label>Amount:</label>
                 </div>
                 <div class="form-row justify-content-center">
-                    <input class="inputstyle" type="text" name="username" id="username">
+                    <input class="inputstyle" type="text" name="amount" id="amount">
+                </div>
+                <br>
+                <div class="form-row justify-content-center">
+                    <label>Description</label>
+                </div>
+                <div class="form-row justify-content-center">
+                    <input class="inputstyle" type="text" name="description" id="description">
                 </div>
                 <br>
                 <div class="form-row justify-content-center">
-                    <label>Password:</label>
+                    <label>Type</label>
                 </div>
                 <div class="form-row justify-content-center">
-                    <input class="inputstyle" type="password" name="password" id="password">
+                    <input class="inputstyle" type="text" name="type" id="type">
                 </div>
                 <br>
                 <br>
                 <br>
+                <br>
                 <div class="form-row justify-content-center">
-                    <input class="btn btn-outline-secondary" value="Login" id="submitButton">
+                    <input class="btn btn-outline-secondary" value="Submit Request" id="addsubmitButton" onclick='addReimbursement()'>
                 </div>
                 <br>
                 <br>
                 <div class="form-row justify-content-center">
                     <div style="color:red;" id="error-div"></div>
                 </div>
+                
+                    
+                  
             </form>
     </main>
     <footer class="bg-light text-center fixed-bottom">
@@ -76,7 +90,7 @@
             Wysocki David Project 1
         </div>
     </footer>
-    <script src="../scripts/login.js"></script>
+    <script src="../scripts/main.js"></script>
 </body>
 
 </html>

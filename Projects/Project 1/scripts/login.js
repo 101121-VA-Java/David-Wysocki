@@ -27,9 +27,13 @@ function login() {
       // navigate to a different view (ie: homepage)
       if (authToken.split(":")[1] === "manager")
         window.location.href = "../views/manager.html";
-    } else if (xhr.readyState === 4) {
-      // provide user with feedback of failure to login
-      document.getElementById("error-div").innerHTML = "Unable to login.";
+
+      if (authToken.split(":")[1] === "employee")
+        window.location.href = "../views/employee.html";
+      else if (xhr.readyState === 4) {
+        // provide user with feedback of failure to login
+        document.getElementById("error-div").innerHTML = "Unable to login.";
+      }
     }
   };
 

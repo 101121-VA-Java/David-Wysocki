@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="com.revature.repositories.EmployeeList"/>
-    <fullyQualifiedTypeName name="com.revature.controllers.LoginController"/>
     <fullyQualifiedTypeName name="com.revature.repositories.EmployeePostgres"/>
     <fullyQualifiedTypeName name="com.revature.repositories.CustomerPostgres"/>
     <fullyQualifiedTypeName name="com.revature.repositories.CustomerDao"/>
@@ -29,13 +27,11 @@
     <fullyQualifiedTypeName name="org.junit.jupiter.api.Test"/>
     <fullyQualifiedTypeName name="com.revature.models.Role"/>
     <fullyQualifiedTypeName name="org.hibernate.SessionFactory"/>
-    <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
     <fullyQualifiedTypeName name="java.sql.SQLException"/>
     <fullyQualifiedTypeName name="io.javalin.Javalin"/>
     <fullyQualifiedTypeName name="java.util.Arrays"/>
     <fullyQualifiedTypeName name="com.revature.daos.UserDao"/>
     <fullyQualifiedTypeName name="com.revature.models.User"/>
-    <fullyQualifiedTypeName name="java.util.stream.Collectors"/>
     <fullyQualifiedTypeName name="com.revature.controllers.AuthController"/>
     <fullyQualifiedTypeName name="com.revature.services.UserService"/>
     <fullyQualifiedTypeName name="com.revature.controllers.UserController"/>
@@ -60,4 +56,8 @@
     <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="com.revature.services.ReimbursementService"/>
     <fullyQualifiedTypeName name="com.revature.controllers.ReimbursementController"/>
+    <fullyQualifiedTypeName name="java.util.stream.Collectors"/>
+    <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
+    <fullyQualifiedTypeName name="java.sql.Timestamp"/>
+    <fullyQualifiedTypeName name="java.time.LocalDate"/>
 </qualifiedTypeNameHistroy>

@@ -35,7 +35,7 @@ public class ReimbursementService {
 			return rd.getReimbursementByStatus(status);
 		}
 
-		public Reimbursement update(Reimbursement r) {
+		public boolean update(Reimbursement r) {
 			return rd.changeReimbursementStatus(r);
 		}
 		public Reimbursement getAReimbursement(int id) {
