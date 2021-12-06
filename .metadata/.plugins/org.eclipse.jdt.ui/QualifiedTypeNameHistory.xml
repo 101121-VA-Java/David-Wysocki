@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="com.revature.repositories.EmployeePostgres"/>
-    <fullyQualifiedTypeName name="com.revature.repositories.CustomerPostgres"/>
-    <fullyQualifiedTypeName name="com.revature.repositories.CustomerDao"/>
     <fullyQualifiedTypeName name="com.revature.exceptions.UsernameAlreadyExistsException"/>
     <fullyQualifiedTypeName name="com.revature.services.TaskService"/>
     <fullyQualifiedTypeName name="com.revature.models.Task"/>
@@ -31,12 +28,9 @@
     <fullyQualifiedTypeName name="io.javalin.Javalin"/>
     <fullyQualifiedTypeName name="java.util.Arrays"/>
     <fullyQualifiedTypeName name="com.revature.daos.UserDao"/>
-    <fullyQualifiedTypeName name="com.revature.models.User"/>
     <fullyQualifiedTypeName name="com.revature.controllers.AuthController"/>
     <fullyQualifiedTypeName name="com.revature.services.UserService"/>
     <fullyQualifiedTypeName name="com.revature.controllers.UserController"/>
-    <fullyQualifiedTypeName name="org.apache.logging.log4j.core.Logger"/>
-    <fullyQualifiedTypeName name="org.apache.logging.log4j.LogManager"/>
     <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="com.revature.util.ConnectionUtil"/>
     <fullyQualifiedTypeName name="java.sql.Connection"/>
@@ -60,4 +54,10 @@
     <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
     <fullyQualifiedTypeName name="java.sql.Timestamp"/>
     <fullyQualifiedTypeName name="java.time.LocalDate"/>
+    <fullyQualifiedTypeName name="com.sun.tools.sjavac.Log"/>
+    <fullyQualifiedTypeName name="org.apache.logging.log4j.core.Logger"/>
+    <fullyQualifiedTypeName name="com.revature.daos.UserPostgres"/>
+    <fullyQualifiedTypeName name="com.revature.models.User"/>
+    <fullyQualifiedTypeName name="org.apache.logging.log4j.Logger"/>
+    <fullyQualifiedTypeName name="org.apache.logging.log4j.LogManager"/>
 </qualifiedTypeNameHistroy>
